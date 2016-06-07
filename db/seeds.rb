@@ -6,11 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-items = [ { name: "Pick Axe", price: 15, description: "Picks things",
-            name: "Wagon Wheel", price: 80, description: "Makes that wagon go",
-            name: "Canvas Cover", price: 10, description: "covers yer wagon",
-            name: "Ammunition", price: 100, description: "How else you gonna kill Buffalo?",
-            name: "Britches", price: 5, description: "Covers yer rear end"
+items = [ { title: "Pick Axe", price: 15, description: "Picks things", image_path: "http://vignette3.wikia.nocookie.net/mafiawars/images/1/14/Huge_item_pickaxe_01.png/revision/latest?cb=20120917074243",
+            title: "Wagon Wheel", price: 80, description: "Makes that wagon go", image_path: "http://comps.gograph.com/big-vintage-rustic-wagon-wheel_gg64416381.jpg",
+            title: "Canvas Cover", price: 10, description: "covers yer wagon", image_path: "http://www.mytarp.com/images/categories/canvas-covers-untreated/natural-canvas-duck-tarps_0443_250x250.jpg"
+            title: "Ammunition", price: 100, description: "How else you gonna kill Buffalo?", image_path: "http://gunsmagazine.com/wordpress/wp-content/uploads/2015/02/number7.jpg"
+            title: "Britches", price: 5, description: "Covers yer rear end" image_path: "http://www.grandmajudyscreations.com/files/3952366/uploaded/britches%20007.jpg"
   } ]
 
   items.each do |data|
