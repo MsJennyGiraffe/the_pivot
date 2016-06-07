@@ -8,8 +8,6 @@ RSpec.feature "user views items by category", type: :feature do
 
     visit category_path
 
-    save_and_open_page
-
     expect(page).to have_content(item1.title)
 
   end
