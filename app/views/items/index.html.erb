@@ -1,7 +1,11 @@
-<h1>All Items</h1>
+<div class="text-center"><h1>All Items</h1></div>
 
-  <% @items.each do |item| %>
-    <%= item.name %>
-    <%= item.price %>
-    <%= item.description %>
-  <% end %>
+<div class="row">
+<% @items.each do |item| %>
+  <div class="col-md-3">
+    <h3 class="text-center"><%= item.title %></h3>
+    <p class="text-center">$<%= item.price %></p>
+    <p class="text-center"><%= item.description %></p>
+  </div>
+<% end %>
+</div>

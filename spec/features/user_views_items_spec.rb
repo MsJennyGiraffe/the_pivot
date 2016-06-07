@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "UserViewsItems", type: :feature do
   scenario "user can view all items on item page" do
-    item = Item.create(name: "Pick Axe", price: 15, description: "sharp item")
+    item = Item.create(title: "Pick Axe", price: 15, description: "sharp item")
     visit items_path
 
     expect(page).to have_content "All Items"
