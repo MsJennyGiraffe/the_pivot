@@ -1,0 +1,7 @@
+<h1>All Categories</h1>
+
+<ol>
+<% @categories.each do |category| %>
+  <li> <%= link_to category.title, "/" + category.title %> </li>
+<% end %>
+</ol>
