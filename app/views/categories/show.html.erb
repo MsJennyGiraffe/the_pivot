@@ -1,0 +1,7 @@
+<h1><%= @category.title.capitalize %></h1>
+
+<ol>
+<% @category.items.each do |item| %>
+ <li> <%= item.title %> </li> 
+  <% end %>
+</ol>
