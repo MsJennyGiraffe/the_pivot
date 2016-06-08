@@ -2,14 +2,38 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
 
-  it "can be created using a factory" do
-    item = FactoryGirl.build(:item)
+  let(:item_instance) { build(:item) }
+
+  it "has a valid factory" do 
+    expect(item_instance).to be_valid
+  end
+
+  context "item should have the correct attributes" do
+    it { should respond_to(:title) }
+    it { should respond_to(:price) }
+    it { should respond_to(:description) }
+    it { should respond_to(:image_path) }
+    it { should respond_to(:category) }
+  end
+
+  describe "can be created using a factory" do
     
-    expect(item.title).to match(/Item Title \d/)
-    expect(item.price).to be_between(1, 10)
-    expect(item.description).to match(/Description \d/)
-    expect(item.image_path).to eq("https://image.freepik.com/free-icon/wagon_318-116334.png")
-    expect(item.category.title).to match(/Category_\d/)
+    it { expect(item_instance.title).to match(/Item Title \d/) }
+    it { expect(item_instance.price).to be_between(1, 10) }
+    it { expect(item_instance.description).to match(/Description \d/) }
+    it { expect(item_instance.image_path).to eq("https://image.freepik.com/free-icon/wagon_318-116334.png") }
+    it { expect(item_instance.category.title).to match(/Category_\d/) }
+  end
+
+  describe "item validates attributes" do 
+    it { expect(item_instance).to validate_presence_of(:title) }
+    it { expect(item_instance).to validate_presence_of(:price) }
+    it { expect(item_instance).to validate_presence_of(:description) }
+    it { expect(item_instance).to validate_presence_of(:image_path) }
+    it { expect(item_instance).to validate_presence_of(:category) }
   end
  
+  describe "item validates associations" do 
+  end
+
 end
