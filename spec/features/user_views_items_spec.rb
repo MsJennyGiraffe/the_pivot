@@ -1,13 +1,22 @@
 require 'rails_helper'
 
 RSpec.feature "UserViewsItems", type: :feature do
+
+  let!(:item_instance) { create(:item) }
   scenario "user can view all items on item page" do
-    item = Item.create(title: "Pick Axe", price: 15, description: "sharp item")
+
     visit items_path
 
-    expect(page).to have_content "All Items"
-    expect(page).to have_content "Pick Axe"
-    expect(page).to have_content "15"
-    expect(page).to have_content "sharp item"
+    within(find_by_id("title")) do
+     expect(page.text).to have_content(/Item Title \d/)
+    end
+
+    within(find_by_id("price")) do
+      expect(page.text).to match(/^\$\d+/)
+    end
+
+    within(find_by_id("description")) do
+      expect(page.text).to match(/Description \d/)
+    end
   end
 end
