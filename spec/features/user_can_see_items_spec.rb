@@ -5,7 +5,11 @@ RSpec.feature "user can navagate to see an items show page" do
     item = FactoryGirl.create(:item)
 
     visit root_path
-    click_link "Items"
+
+    within "#items" do
+      click_link "Items"
+    end
+
     click_link "#{item.title}"
 
     expect(current_path).to eq(item_path(item))
