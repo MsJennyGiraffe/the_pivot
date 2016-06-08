@@ -13,4 +13,11 @@ class Item < ActiveRecord::Base
   #   medium: '300x300'
   # }
   # validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
+
+
+  def self.search(search)
+    query = "%#{search}%"
+    self.where("title ILIKE ? or description ILIKE ?", query, query)
+  end
 end
