@@ -1,7 +1,11 @@
-<h1>All Categories</h1>
+<div class="fluid-container">
+  <h1 class="text-center">All Categories</h1>
+</div>
 
-<ol>
+<div class="fluid-container">
 <% @categories.each do |category| %>
-  <li> <%= link_to category.title, "/" + category.title %> </li>
+  <div class="col-xs-12 col-md-4">
+    <div class="text-center btn btn-default btn-block"> <%= link_to category.title, "/" + category.title %> </div>
+  </div>
 <% end %>
-</ol>
+</div>
