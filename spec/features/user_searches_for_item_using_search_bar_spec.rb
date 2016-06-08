@@ -6,7 +6,9 @@ RSpec.feature "user searches for an item using search bar on homepage", type: :f
 
     visit root_path
 
-    fill_in "Shop Search", with: "Pick"
-    expect(page).to have_content("Pick Axe")
+
+    fill_in "Shop Search", with: item1.title
+    click_button "Search"
+    expect(page.text).to match(/Item Title \d/)
   end
 end

@@ -12,7 +12,7 @@ FactoryGirl.define do
     title { generate(:item_title) }
     price { rand(1..10) }
     description
-    avatar_file_name "https://image.freepik.com/free-icon/wagon_318-116334.png" 
+    image_path "https://image.freepik.com/free-icon/wagon_318-116334.png"
     category
   end
 
