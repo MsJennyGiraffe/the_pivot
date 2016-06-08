@@ -12,8 +12,8 @@ FactoryGirl.define do
     title { generate(:item_title) }
     price { rand(1..10) }
     description
-    image_path "https://image.freepik.com/free-icon/wagon_318-116334.png" 
-    category 
+    image_path "https://image.freepik.com/free-icon/wagon_318-116334.png"
+    category
   end
 
   sequence :category_title do |n|
@@ -26,4 +26,3 @@ FactoryGirl.define do
 
 
 end
- 

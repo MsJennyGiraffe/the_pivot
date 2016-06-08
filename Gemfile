@@ -29,6 +29,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# gem "paperclip", "~> 5.0.0.beta1"
+# gem "aws-sdk", "~> 2.3"
 
 gem 'rails_12factor', group: :production
 

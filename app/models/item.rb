@@ -7,4 +7,9 @@ class Item < ActiveRecord::Base
   validates :description, presence: true
   validates :image_path, presence: true
             
+
+  def self.search(search)
+    query = "%#{search}%"
+    self.where("title ILIKE ? or description ILIKE ?", query, query)
+  end
 end
