@@ -3,3 +3,14 @@
 <%= link_to "Categories", categories_path %>
 <br>
 <%= link_to "Items", items_path %>
+
+<%= form_tag(items_path, :method => "GET") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Shop Search" %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<!-- <% if @items.present? %>
+
+<% else %>
+  <p>There are no items containing the search <%= params[:search] %></p>
+<% end %> -->
