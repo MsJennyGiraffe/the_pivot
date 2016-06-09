@@ -8,6 +8,9 @@ RSpec.feature "User logs in" do
     visit login_path
     # And when I click link "Create Account"
     click_on "Create Account"
+
+    expect(current_path).to eq(new_user_path)
+
     # And I fill in my desired credentials
     fill_in "Username", with: user.username
     fill_in "Password", with: user.password
@@ -16,9 +19,9 @@ RSpec.feature "User logs in" do
     click_button "Login"
 
     # Then my current page should be "/dashboard"
-    expect(current_path).to eq(dashboard_path)
+    expect(current_path).to eq("/dashboard/#{user.id}")
     # And I should see a message in the navbar that says "Logged in as SOME_USER"
-    within("navbar") do
+    within("nav navbar-nav navbar-right") do
       expect(page).to have_content("Logged in as #{user.username}")
     end
     

@@ -33,8 +33,12 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Log In</a></li>
-        <li><a href="#">Create Account</a></li>
+        <% if current_user %>
+          <li class="navbar-text", id: "welcome">Welcome, <%= current_user.username %> </li>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Login", login_path %></li>
+        <% end %>
           </ul>
         </li>
       </ul>

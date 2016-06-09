@@ -3,9 +3,15 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show]
 
+  resources :users, only: [:new]
+
   resources :categories, only: [:index]
 
+  get '/dashboard/:id', to: 'users#show'
+
   get '/login', to: 'sessions#new'
+
+  post '/login', to: 'sessions#create'
 
   get '/search', to: 'search#index'
 
