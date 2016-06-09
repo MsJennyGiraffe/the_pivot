@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index]
 
+  get '/login', to: 'sessions#new'
+
   get '/search', to: 'search#index'
 
   get '/:category_title', to: 'categories#show'
