@@ -2,7 +2,7 @@
 
 <div class="row">
 <% @items.each do |item| %>
-  <div class="col-md-3">
+  <div class="col-md-3 item-show" >
     <p class="text-center"><%= image_tag item.image_path %></p>
     <h3 id="title" class="text-center"><%= link_to item.title, item_path(item) %></h3>
     <p id="price" class="text-center">$<%= item.price %></p>
