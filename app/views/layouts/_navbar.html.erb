@@ -1,0 +1,47 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">General Store</a>
+    </div>
+
+      <div class="form-group">
+        <%= form_tag(search_path, :method => "GET") do %>
+        <div class="col-xs-8 col-md-6">
+          <%= text_field_tag :search, params[:search], placeholder: "Shop Search", class: "form-control text-center" %>
+        </div>
+        <div class="col-xs-4">
+          <%= submit_tag "Search", class:"btn btn-default" %>
+        </div>
+        <% end %>
+      </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
+        <li id="items"><%= link_to "Items", items_path %></li>
+        <li class="dropdown">
+          <a href="/categories" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/clothing">Clothing</a></li>
+            <li><a href="/ammunition">Ammunition</a></li>
+            <li><a href="/livestock">Livestock</a></li>
+            <li><a href="/parts">Parts</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Log In</a></li>
+        <li><a href="#">Create Account</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
