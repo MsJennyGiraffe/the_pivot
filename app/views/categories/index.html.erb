@@ -2,7 +2,7 @@
   <h1 class="text-center">All Categories</h1>
 </div>
 
-<div class="fluid-container">
+<div class="container">
 <% @categories.each do |category| %>
   <div class="col-xs-12 col-md-4">
     <div class="text-center btn btn-default btn-block"> <%= link_to category.title, "/" + category.title %> </div>
