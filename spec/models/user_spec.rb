@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
   let(:user_instance) { build(:user) }
 
-  it "has a valid factory" do 
+  it "has a valid factory" do
     expect(user_instance).to be_valid
     expect(user_instance).to respond_to(:username)
     expect(user_instance).to respond_to(:password_digest)
@@ -13,11 +12,9 @@ RSpec.describe User, type: :model do
     expect(user_instance).to respond_to(:role)
   end
 
-  describe "user validates attributes" do 
+  describe "user validates attributes" do
     it { expect(user_instance).to validate_presence_of(:username) }
     it { expect(user_instance).to validate_presence_of(:password_digest) }
     it { expect(user_instance).to validate_presence_of(:email) }
-    it { expect(user_instance).to validate_presence_of(:role) }
   end
- 
 end

@@ -38,10 +38,11 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <li class="navbar-text", id: "welcome">Welcome, <%= current_user.username %> </li>
+          <li class="navbar-text", id: "welcome">Logged in as <%= current_user.username %> </li>
           <li><%= link_to "Logout", logout_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Login", login_path %></li>
+          <li><%= link_to "Sign Up", new_user_path %></li>
         <% end %>
           </ul>
         </li>

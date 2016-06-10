@@ -7,11 +7,11 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index]
 
-  get '/dashboard/:id', to: 'users#show'
+  get '/dashboard', to: 'users#show'
 
   get '/login', to: 'sessions#new'
-
   post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
   get '/search', to: 'search#index'
 

@@ -30,6 +30,4 @@ FactoryGirl.define do
     email "email"
     role "0"
   end
-
-
 end
