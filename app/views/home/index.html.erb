@@ -1,4 +1,15 @@
 <h1 class="text-center">Welcome to The General Store</h1>
 
-<br>
-<%= link_to "Items", items_path %>
+<div class="container homepage-items text-center">
+  <div class="row text-center">
+    <h1 class="text-center">Featured Items</h1>
+    <% @items.each do |item| %>
+    <div class="col-md-3 home-item-show" >
+      <p class="text-center"><%= image_tag item.image_path %></p>
+      <h3 id="title" class="text-center"><%= link_to item.title, item_path(item) %></h3>
+      <p id="price" class="text-center">$<%= item.price %></p>
+      <p id="description" class="text-center"><%= item.description %></p>
+    </div>
+    <% end %>
+  </div>
+</div>
