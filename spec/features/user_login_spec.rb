@@ -5,9 +5,12 @@ RSpec.feature "User logs in" do
   scenario "with valid credentials" do 
     # As a visitor 
     # When I visit "/login
-    visit login_path
+    # visit login_path
     # And when I click link "Create Account"
-    click_on "Create Account"
+    visit root_path
+    save_and_open_page
+
+    click_link "Create Account"
 
     expect(current_path).to eq(new_user_path)
 
