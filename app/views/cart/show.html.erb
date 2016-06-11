@@ -1,0 +1,11 @@
+Cart items:
+<% @items.each do |item| %>
+  <%= item.title %>
+  <%= item.description %>
+  <%= item.price %>
+  <%= item.weight %>
+  Price Total: <%= item.price %>
+  Weight Total: <%= item.weight %>
+
+<% end %>
+<!-- need method for weight, total weight, and total price. -->
