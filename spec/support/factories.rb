@@ -30,4 +30,15 @@ FactoryGirl.define do
     email "email"
     role "0"
   end
+
+  factory :order do
+    user
+    status "ready"
+    items { create_list(:item, 3) }
+  end
+
+  factory :order_item do
+    order
+    item
+  end
 end
