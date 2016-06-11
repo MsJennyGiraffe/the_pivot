@@ -24,5 +24,10 @@ FactoryGirl.define do
     title { generate(:category_title) }
   end
 
-
+  factory :user do
+    password "password"
+    username "username"
+    email "email"
+    role "0"
+  end
 end

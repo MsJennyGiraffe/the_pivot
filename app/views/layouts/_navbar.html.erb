@@ -5,6 +5,8 @@
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/">General Store</a>
     </div>
@@ -46,13 +48,16 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Log In</a></li>
-        <li><a href="#">Create Account</a></li>
-
+        <% if current_user %>
+          <li class="navbar-text", id: "welcome">Logged in as <%= current_user.username %> </li>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Login", login_path %></li>
+          <li><%= link_to "Sign Up", new_user_path %></li>
+        <% end %>
         <li><%= link_to "View Cart", cart_path %></li>
-        
-          </ul>
-        </li>
+      </ul>
+      </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
