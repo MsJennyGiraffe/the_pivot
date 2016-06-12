@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index]
 
+  resources :orders, only: [:index, :show]
+
   get '/dashboard', to: 'users#show'
 
   get '/login', to: 'sessions#new'

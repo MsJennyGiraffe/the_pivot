@@ -9,11 +9,11 @@ RSpec.describe Item, type: :model do
   end
 
   context "item should have the correct attributes" do
-    it { should respond_to(:title) }
-    it { should respond_to(:price) }
-    it { should respond_to(:description) }
-    it { should respond_to(:image_path) }
-    it { should respond_to(:category) }
+    it { expect(item_instance).to respond_to(:title) }
+    it { expect(item_instance).to respond_to(:price) }
+    it { expect(item_instance).to respond_to(:description) }
+    it { expect(item_instance).to respond_to(:image_path) }
+    it { expect(item_instance).to respond_to(:category) }
   end
 
   describe "can be created using a factory" do
@@ -35,5 +35,4 @@ RSpec.describe Item, type: :model do
  
   describe "item validates associations" do 
   end
-
 end
