@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   after_create :set_default_role
 
+  has_many :orders
+
   validates :username, presence: true
   validates :password_digest, presence: true
   validates :email, presence: true

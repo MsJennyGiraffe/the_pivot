@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
-
   let(:order_instance) { build(:order) }
 
   it "has a valid factory" do
     expect(order_instance).to be_valid
   end
-  
+
   describe "order should have the correct attributes" do
     it { should respond_to(:user) }
     it { should respond_to(:status) }
@@ -21,8 +20,8 @@ RSpec.describe Order, type: :model do
     it { expect(order_instance).to have_many(:items) }
   end
 
-  describe "order validates attributes" do 
-     it { expect(order_instance).to validate_presence_of(:status) }
-     it { expect(order_instance).to validate_presence_of(:user) }
+  describe "order validates attributes" do
+    it { expect(order_instance).to validate_presence_of(:status) }
+    it { expect(order_instance).to validate_presence_of(:user) }
   end
 end
