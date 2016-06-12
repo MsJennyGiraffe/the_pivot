@@ -3,6 +3,6 @@
 <% @category.items.each do |item| %>
   <div class="text-center"><%= image_tag item.image_path %></div>
   <div class="text-center"><%= link_to item.title, item_path(item), class:"btn btn-default btn-block" %></div>
-  <div class="text-center">$<%= item.price %></div>
+  <div class="text-center"><strong>$<%= item.price %></strong></div>
   <br>
 <% end %>
