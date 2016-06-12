@@ -9,6 +9,11 @@ class CartController < ApplicationController
 
   def show
     @cart = session[:cart]
-    @items = Item.find_by_id(@cart)
+    if @cart.nil?
+      flash[:no_items] = "Your cart is currently empty"
+    else
+      @item_ids = @cart.keys
+      @items = Item.where(id: @item_ids)
+    end
   end
 end

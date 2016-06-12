@@ -14,6 +14,7 @@ FactoryGirl.define do
     description
     image_path "https://image.freepik.com/free-icon/wagon_318-116334.png"
     category
+    weight 10
   end
 
   sequence :category_title do |n|

@@ -12,7 +12,7 @@ RSpec.feature "user views items by category", type: :feature do
 
   end
 
-  scenario "user can view a list of items for a specific category" do 
+  scenario "user can view a list of items for a specific category" do
     item1, item2 = create_list(:item, 3)
     category_path = "/" + item1.category.title
 
