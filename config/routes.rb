@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :cart, only: [:create]
   get "/cart", to: "cart#show"
   post "/cart", to: "cart#create"
+  patch "/cart", to: "cart#update"
+  delete "/cart", to: "cart#destroy"
 
   get '/search', to: 'search#index'
 
