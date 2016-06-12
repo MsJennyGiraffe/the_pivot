@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="container col-md-8">
+    <% @items.each do |item| %>
+
+    <div class="media">
+      <div class="media-left .pull-left">
+        <%= image_tag item.image_path, :class => "media-object"%>
+      </div>
+      <div class="media-body .pull-right">
+        <h3 id="title" class="media-heading"><%=link_to item.title, item_path(item) %></h3>
+        <div id="description"><%= item.description %></div>
+        <div id="weight">Weight: <%= item.weight %>lbs</div>
+        <div id="price"><strong>$<%= item.price %></strong></div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
