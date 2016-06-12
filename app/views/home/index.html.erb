@@ -1,15 +1,23 @@
 <h1 class="text-center">Welcome to The General Store</h1>
+<br>
+<br>
 
-<div class="container homepage-items text-center">
-  <div class="row text-center">
-    <h1 class="text-center">Featured Items</h1>
-    <% @items.each do |item| %>
-    <div class="col-md-3 home-item-show" >
-      <p class="text-center"><%= image_tag item.image_path %></p>
-      <h3 id="title" class="text-center"><%= link_to item.title, item_path(item) %></h3>
-      <p id="price" class="text-center">$<%= item.price %></p>
-      <p id="description" class="text-center"><%= item.description %></p>
+<div class="container col-md-8">
+  <h2>Featured Items</h2>
+  <% @items.each do |item| %>
+
+  <div class="media">
+    <div class="media-left .pull-left">
+      <!-- <a><%= image_tag item.image_path %> -->
+      <%= image_tag item.image_path, :class => "media-object"%>
+      <!-- </a> -->
     </div>
-    <% end %>
+    <div class="media-body .pull-right">
+      <h3 id="title"class="media-heading"><%= link_to item.title, item_path(item) %></h3>
+      <div id="description"><%= item.description %></div>
+      <div id="price"><strong>$<%= item.price %></strong></div>
+    </div>
   </div>
+  <% end %>
+
 </div>
