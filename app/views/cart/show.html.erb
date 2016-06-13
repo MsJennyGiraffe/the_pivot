@@ -52,5 +52,6 @@ No current items
     <h2 class="text-center">Order Totals</h2>
     <h4 class="text-center">Total Price: $<%= @cart.total_price %>.00</h4>
     <h4 class="text-center">Weight Total: <%= @cart.total_weight %> lbs</h4>
+    <li><%= link_to  "Checkout", orders_path, method: :post %></li>
     <br>
     <% end %>

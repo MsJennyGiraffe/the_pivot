@@ -35,7 +35,10 @@ FactoryGirl.define do
   factory :order do
     user
     status "ready"
-    items { create_list(:item, 3) }
+
+    factory :order_with_items do
+      items { create_list(:item, 3) }
+    end
   end
 
   factory :order_item do
