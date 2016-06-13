@@ -1,8 +1,6 @@
-<h1 class="text-center"><%= @category.title.capitalize %></h1><br>
-
 <div class="row">
   <div class="container col-md-8">
-    <% @category.items.each do |item| %>
+    <% @items.each do |item| %>
 
     <div class="media">
       <div class="media-left .pull-left">
@@ -14,8 +12,6 @@
         <div id="weight">Weight: <%= item.weight %>lbs</div>
         <div id="price"><strong>$<%= item.price %></strong></div>
       </div>
-    <div class="media-right .pull-right">
-      <div><%= link_to "Add to Cart", cart_path(id: item.id), class: "btn btn-primary btn-lg active", method: :post %></div>
     </div>
     <% end %>
   </div>
