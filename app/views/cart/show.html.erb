@@ -32,7 +32,7 @@ No current items
         <div class="media-right .pull-right">
           <div id="butts" type="button"><%= link_to "Remove", cart_path(id: cart_item.id), method: :delete, class:"btn btn-primary active" %></div>
           <div id="butts" class="dropdown">
-            <button class="btn btn-primary dropdown-toggle active" type="button" data-toggle="dropdown">Quantity: <%= cart_item.quantity %>
+            <button class="btn btn-primary dropdown-toggle active" type="button" data-toggle="dropdown"> <%= cart_item.quantity %>
               <span class="caret"></span></button>
               <ul class="dropdown-menu scrollable-menu">
                 <% quantity_range.each do |quantity| %>
