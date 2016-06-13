@@ -1,8 +1,14 @@
 img {
-  max-width: 300px;
-  max-height: 200px;
+  max-width: 250px;
+  max-height: 250px;
 }
 
-.item-show {
-  height: 500px;
+media-body {
+  /*text-overflow: ellipsis;*/
+  white-space: nowrap;
+}
+
+#butts {
+    border-radius:3px;
+    margin-bottom: 3px;
 }
