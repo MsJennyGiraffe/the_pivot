@@ -3,11 +3,10 @@ No current items
 <% else %>
 <% quantity_range = 1..20 %>
 
-<h2 class="text-center">Cart items: </h2>
+<div class="panel panel-primary">
+  <h2 class="text-center">Cart items: </h2>
+</div>
 <br>
-
-
-
 
 <div class="row">
 <div class="container col-md-8">
@@ -46,11 +45,15 @@ No current items
     </div>
   </div>
 
-    <br>
-    <h3>Pick Up Time Reservation</h3>
-    <br>
-    <h2 class="text-center">Order Totals</h2>
-    <h4 class="text-center">Total Price: $<%= @cart.total_price %>.00</h4>
-    <h4 class="text-center">Weight Total: <%= @cart.total_weight %> lbs</h4>
-    <br>
-    <% end %>
+
+
+      <div class="panel panel-primary">
+        <br>
+        <h3>Pick Up Time Reservation</h3>
+        <br>
+        <h2 class="text-center">Order Totals</h2>
+        <h4 class="text-center">Total Price: $<%= @cart.total_price %>.00</h4>
+        <h4 class="text-center">Weight Total: <%= @cart.total_weight %> lbs</h4>
+        <br>
+        <% end %>
+      </div>

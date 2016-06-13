@@ -2,10 +2,6 @@ body {
     background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/iPad-warm-wood-wallpaper.jpg");
 }
 
-h1 {
-  color: #FFFFFF;
-}
-
 img {
   max-width: 250px;
   max-height: 250px;
@@ -14,6 +10,11 @@ img {
 media-body {
   /*text-overflow: ellipsis;*/
   white-space: nowrap;
+}
+
+#homepage_image {
+  max-width: 100%;
+  max-height: inherit;
 }
 
 #butts {
