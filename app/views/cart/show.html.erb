@@ -21,9 +21,8 @@ No current items
         <div id="price"><strong>$<%= cart_item.price %></strong></div>
       </div>
       <div class="media-right .pull-right">
-        <button class="btn btn-primary active" type="button"><%= link_to "Remove", cart_path(id: cart_item.id), method: :delete %></button>
-        
-        <div class="dropdown">
+        <button id="butts" class="btn btn-lrg btn-primary active" type="button"><%= link_to "Remove", cart_path(id: cart_item.id), method: :delete %></button>
+        <div id="butts" class="dropdown">
           <button class="btn btn-primary dropdown-toggle active" type="button" data-toggle="dropdown">Quantity
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
@@ -37,10 +36,11 @@ No current items
       </div>
     </div>
 
-
     <br>
-    Total Price: <%= @cart.total_price %>
+    <h3>Pick Up Time Reservation</h3>
     <br>
-    Weight Total: <%= @cart.total_weight %>
+    <h2 class="text-center">Order Totals</h2>
+    <h4 class="text-center">Total Price: $<%= @cart.total_price %>.00</h4>
+    <h4 class="text-center">Weight Total: <%= @cart.total_weight %> lbs</h4>
     <br>
     <% end %>
