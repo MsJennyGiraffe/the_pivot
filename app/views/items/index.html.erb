@@ -1,12 +1,3 @@
 <div class="text-center"><h1>All Items</h1></div>
 
-<div class="row">
-<% @items.each do |item| %>
-  <div class="col-md-3 item-show" >
-    <p class="text-center"><%= image_tag item.image_path %></p>
-    <h3 id="title" class="text-center"><%= link_to item.title, item_path(item) %></h3>
-    <p id="price" class="text-center">$<%= item.price %></p>
-    <p id="description" class="text-center"><%= item.description %></p>
-  </div>
-<% end %>
-</div>
+  <%= render "shared/item" %>

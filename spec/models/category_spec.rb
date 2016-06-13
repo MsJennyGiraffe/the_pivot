@@ -20,5 +20,4 @@ RSpec.describe Category, type: :model do
   describe "category validates associations" do
     it { expect(category_instance).to have_many(:items) }
   end
-
 end

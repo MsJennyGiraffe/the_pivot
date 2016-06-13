@@ -1,13 +1,13 @@
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
-  
+
   config.before(:suite) do 
     DatabaseCleaner.clean_with(:truncation)
     begin
       DatabaseCleaner.start
-      FactoryGirl.lint 
+      FactoryGirl.lint
     ensure
-      DatabaseCleaner.clean 
+      DatabaseCleaner.clean
     end
-  end 
+  end
 end
