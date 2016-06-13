@@ -50,6 +50,5 @@ RSpec.feature "User logs in" do
     click_link "Logout"
 
     expect(current_path).to eq("/login")
-
   end
 end
