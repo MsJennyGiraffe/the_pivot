@@ -4,6 +4,11 @@ img {
 }
 
 media-body {
-  text-overflow: ellipsis;
+  /*text-overflow: ellipsis;*/
   white-space: nowrap;
+}
+
+#butts {
+    border-radius:3px;
+    margin-bottom: 3px;
 }
