@@ -9,7 +9,7 @@ RSpec.feature "user can remove an item from the cart" do
     click_link "Remove"
 
     expect(page).to have_content("Successfully removed #{item.title} from your cart")
-    expect(page).to_not have_content("#{item.price}")
+    expect(page).to_not have_content("$#{item.price}")
     expect(page).to_not have_content("#{item.description}")
 
     click_link "#{item.title}"

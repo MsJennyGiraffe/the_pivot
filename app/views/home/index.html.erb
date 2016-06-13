@@ -1,23 +1,6 @@
 <h1 class="text-center">Welcome to The General Store</h1>
 <br>
 <br>
-
-<div class="container col-md-8">
-  <h2>Featured Items</h2>
-  <% @items.each do |item| %>
-
-  <div class="media">
-    <div class="media-left .pull-left">
-      <!-- <a><%= image_tag item.image_path %> -->
-      <%= image_tag item.image_path, :class => "media-object"%>
-      <!-- </a> -->
-    </div>
-    <div class="media-body .pull-right">
-      <h3 id="title"class="media-heading"><%= link_to item.title, item_path(item) %></h3>
-      <div id="description"><%= item.description %></div>
-      <div id="price"><strong>$<%= item.price %></strong></div>
-    </div>
-  </div>
-  <% end %>
-
-</div>
+<h3 class="text-center">Featured Items</h3>
+<br>
+<%= render "shared/item" %>
