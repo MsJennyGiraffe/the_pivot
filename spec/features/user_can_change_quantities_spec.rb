@@ -19,12 +19,14 @@ RSpec.feature "User can adjust item quantites in cart" do
     click_on "2"
 
     expect(page).to have_content "2"
+
     expect(page).to have_content "Total Price: $#{total_price_for_two}"
 
     click_button ("2")
     click_on "4"
 
     expect(page).to have_content "4"
+
     expect(page).to have_content "Total Price: $#{total_price_for_four}"
 
   end

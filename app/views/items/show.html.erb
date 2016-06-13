@@ -14,7 +14,7 @@
           <div id="weight">Weight: <%= @item.weight %>lbs</div>
           <div id="price"><strong>$<%= @item.price %></strong></div>
         </div>
-        </div>  
+        </div>
       </div>
     <div class="media-right .pull-right">
       <div><%= link_to "Add to Cart", cart_path(id: @item.id), class: "btn btn-primary btn-lg active", method: :post %></div>
