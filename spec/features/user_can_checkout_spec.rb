@@ -13,6 +13,10 @@ RSpec.feature "user can checkout" do
   scenario "a logged in user can checkout" do
     item = FactoryGirl.create(:item)
 
+    user = FactoryGirl.create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).
+      and_return(user)
+
     visit item_path(item)
     click_link "Add to cart"
 
@@ -24,10 +28,8 @@ RSpec.feature "user can checkout" do
     click_link "Checkout"
 
     expect(current_path).to eq('/orders')
-    exoect(page).to have_content("Order was successfully placed")
-    expect(page).to have_content(item.title)
-    # (expect orders to be a table)
-    (probably expect a reservation time)
+    expect(page).to have_content("Order was successfully placed")
+    expect(page).to have_content("Order Number: #{Order.last.id}")
   end
 
 end

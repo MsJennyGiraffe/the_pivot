@@ -3,7 +3,7 @@
   <div class="container">
     <ul>
     <% @orders.each do |order| %>
-      <li>Order Number: <%= order.id %> <%= link_to "View Order", order_path(order) %> </li>
+      <li>Order Number: <%= order.id %> <%= link_to "View Order", orders_path %> </li>
     <% end %>
     </ul>
   </div>
