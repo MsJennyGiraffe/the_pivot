@@ -13,7 +13,7 @@
         <div id="price"><strong>$<%= item.price %></strong></div>
       </div>
     <div class="media-right .pull-right">
-      <button class="btn btn-primary active" type="button"><%= link_to "Add to cart", cart_path(id: item.id), class: "btn btn-default", method: :post %></button>
+      <button class="btn btn-primary btn-lg active" type="button"><%= link_to "Add to Cart", cart_path(id: item.id), class: "btn btn-default", method: :post %></button>
     </div>
     <% end %>
   </div>
