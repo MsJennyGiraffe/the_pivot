@@ -3,7 +3,6 @@ require "rails_helper"
 RSpec.feature "User can adjust item quantites in cart" do
   scenario "user increases quantity" do
     item = FactoryGirl.create(:item)
-    # cart = {"#{item.id}"=>1},  session[:cart] = cart, HOW DO I STUB session
     total_price_for_two = item.price * 2
     total_price_for_four = item.price * 4
 
@@ -20,13 +19,13 @@ RSpec.feature "User can adjust item quantites in cart" do
     click_on "2"
 
     expect(page).to have_content "Quantity: 2"
-    expect(page).to have_content "Total Price: #{total_price_for_two}"
+    expect(page).to have_content "Total Price: $#{total_price_for_two}"
 
     click_button ("Quantity")
     click_on "4"
 
     expect(page).to have_content "Quantity: 4"
-    expect(page).to have_content "Total Price: #{total_price_for_four}"
+    expect(page).to have_content "Total Price: $#{total_price_for_four}"
 
   end
 
