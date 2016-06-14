@@ -1,20 +1,27 @@
-
-<h1>Order Number <%= @order.id %></h1>
-<div>
+<div class="well">
   <div class="container">
-    <table class="table table-striped">
-      <th>Item</th>
-      <th>Quantity</th>
-      <th>Total Weight</th>
-      <th>Total Price</th>
-      <% @order.order_items.each do |order_item| %>
-      <tr>
-        <td><%= order_item.item.title %> </td>
-        <td><%= order_item.quantity %> </td>
-        <td><%= order_item.item.subtotal_weight %> </td>
-        <td><%= order_item.item.subtotal_price %> </td>
-      </tr>
-      <% end %>
-    </table>
+    <h1 class="text-center">Order Number <%= @order.id %></h1>
+    <div>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Weight/Unit</th>
+          <th>Price/Unit</th>
+          <th>Total Weight</th>
+          <th>Total Price</th>
+          <% @order.order_items.each do |order_item| %>
+          <tr>
+            <td> <%= order_item.item.title %> </td>
+            <td> <%= order_item.quantity %> </td>
+            <td> <%= order_item.item.weight %> </td>
+            <td> <%= order_item.item.price %> </td>
+            <td> <%= order_item.item.weight * order_item.quantity %> </td>
+            <td> <%= order_item.item.price * order_item.item.price %> </td>
+          </tr>
+          <% end %>
+        </thead>
+      </table>
+    </div>
   </div>
 </div>
