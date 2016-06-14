@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
     @orders = @user.orders
   end
 
-
   def create
     if current_user
       @order = current_user.orders.new(status: "ready")
