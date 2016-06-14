@@ -2,15 +2,16 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :items, only: [:index, :show]
-
   resources :users, only: [:new, :create]
-
   resources :categories, only: [:index]
-
   resources :orders, only: [:index, :show, :create]
 
-  get '/dashboard', to: 'users#show'
+  namespace :admin do
+    get '/dashboard', to: 'orders#index'
+  end
 
+
+  get '/dashboard', to: 'users#show'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
