@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
   end
-  
+
   def new
     @user = User.new
   end
@@ -11,7 +11,11 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Logged in as #{@user.username}"
-      redirect_to dashboard_path
+      if @cart.contents.empty?
+        redirect_to user_dashboard_path
+      else
+        redirect_to cart_path
+      end
     else
       flash.now[:error] = @user.errors.full_messages.join(", ")
       render :new
