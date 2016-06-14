@@ -27,3 +27,8 @@ media-body {
   max-height: 200px;
   overflow-x: hidden;
 }
+
+img.resize{
+  width: 150px;
+  height: auto;
+}
