@@ -29,7 +29,7 @@ FactoryGirl.define do
     password "password"
     username "username"
     email "email"
-    role "0"
+    role 0
   end
 
   factory :order do
