@@ -1,0 +1,12 @@
+<h1>Select a Pick Up Time</h1>
+
+  <h3>Pick Hours</h3>
+    <ul><strong>Pick Up hours:</strong>
+      <li>Tuesday - Saturday</li>
+      <li>10:00am - 3:00pm</li>
+    </ul>
+    <br>
+  <%= form_for do |f| %>
+    <%= f.label :pickup_time %>
+    <%= f.collection_select :pickup_time, Cart.order(:id), :title, :weight, include_blank: true %>
+  <% end %>
