@@ -8,13 +8,13 @@ RSpec.feature "User can add an item to their cart" do
     total_weight = item.weight + item2.weight
 
     visit item_path(item)
-    click_link "Add to cart"
+    click_link "Add to Cart"
     expect(current_path).to eq(item_path(item))
     expect(page).to have_content "#{item.title} has been added to cart."
     expect(current_path).to eq(item_path(item))
     visit item_path(item2)
 
-    click_link "Add to cart"
+    click_link "Add to Cart"
     expect(page).to have_content "#{item2.title} has been added to cart."
 
     click_link "View Cart"

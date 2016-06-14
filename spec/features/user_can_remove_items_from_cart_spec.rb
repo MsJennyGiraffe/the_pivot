@@ -4,7 +4,7 @@ RSpec.feature "user can remove an item from the cart" do
   scenario "user can remove an item from the cart" do
     item = FactoryGirl.create(:item)
     visit item_path(item)
-    click_link "Add to cart"
+    click_link "Add to Cart"
     visit '/cart'
     click_link "Remove"
 

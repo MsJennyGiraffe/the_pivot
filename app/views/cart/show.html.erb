@@ -3,13 +3,10 @@ No current items
 <% else %>
 <% quantity_range = 1..20 %>
 
-<h2 class="text-center">Cart items: </h2>
+<div class="panel panel-primary">
+  <h2 class="text-center">Cart items: </h2>
+</div>
 <br>
-
-
-
-
-
 
 <div class="row">
 <div class="container col-md-8">
@@ -21,21 +18,24 @@ No current items
     </div>
     <div class="media-body .pull-right">
       <div class="panel panel-primary">
-        <div class="panel panel-body">
+      <div class="panel panel-body">
           <h3 id="title" class="media-heading"><%=link_to cart_item.title, cart_path(cart_item) %></h3>
           <div id="description"><%= cart_item.description %></div>
-          <div id="weight">Weight: <%= cart_item.weight %>lbs</div>
+          <hr>
+          <div id="weight">Item Weight: <%= cart_item.weight %>lbs   -  Total Item Weight: <%= cart_item.subtotal_weight %>lbs</div>
+          <hr>
           <div id="price"><strong>Unit Price: $<%= cart_item.price %></strong></div>
-          <div id="subtotal_price"><strong>Subtotal: $<%= cart_item.subtotal_price %></strong></div>
+          <hr>
+          <div><strong>Subtotal: $<%= cart_item.subtotal_price %></strong></div>
         </div>
       </div>
       </div>
         <div class="media-right .pull-right">
           <div id="butts" type="button"><%= link_to "Remove", cart_path(id: cart_item.id), method: :delete, class:"btn btn-primary active" %></div>
           <div id="butts" class="dropdown">
-            <button class="btn btn-primary dropdown-toggle active" type="button" data-toggle="dropdown">Quantity: <%= cart_item.quantity %>
+            <button class="btn btn-primary dropdown-toggle active" type="button" data-toggle="dropdown"> <%= cart_item.quantity %>
               <span class="caret"></span></button>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu scrollable-menu">
                 <% quantity_range.each do |quantity| %>
                 <li><%= link_to quantity, cart_path(id: cart_item.id, quantity: quantity), method: :patch %></li>
                 <% end %>
@@ -46,12 +46,16 @@ No current items
     </div>
   </div>
 
-    <br>
-    <h3>Pick Up Time Reservation</h3>
-    <br>
-    <h2 class="text-center">Order Totals</h2>
-    <h4 class="text-center">Total Price: $<%= @cart.total_price %>.00</h4>
-    <h4 class="text-center">Weight Total: <%= @cart.total_weight %> lbs</h4>
-    <li><%= link_to  "Checkout", orders_path, method: :post %></li>
-    <br>
-    <% end %>
+
+
+      <div class="panel panel-primary">
+        <br>
+        <h3>Pick Up Time Reservation</h3>
+        <br>
+        <h2 class="text-center">Order Totals</h2>
+        <h4 class="text-center">Total Price: $<%= @cart.total_price %>.00</h4>
+        <h4 class="text-center">Weight Total: <%= @cart.total_weight %> lbs</h4>
+        <br>
+        <div><%= link_to "Checkout", orders_path, method: :post, class:"btn btn-primary active" %></div>
+        <% end %>
+      </div>
