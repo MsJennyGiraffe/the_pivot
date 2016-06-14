@@ -1,12 +1,17 @@
-<div class="panel panel-primary">
-  <h1>Your Orders</h1>
-</div>
-<div>
-  <div class="container">
-    <ul>
-    <% @orders.each do |order| %>
-      <li>Order Number: <%= order.id %> <%= link_to "View Order", orders_path %> </li>
-    <% end %>
-    </ul>
+<div class="well">
+  <h1 class="text-center">Your Orders</h1>
+  <div>
+    <div class="container">
+      <table class="table table-bordered table-striped">
+        <th>Order Number</th>
+        <th></th>
+        <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.id %> </td>
+          <td><%= link_to "View Order", order_path(order) %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
 </div>
