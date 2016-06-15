@@ -4,12 +4,13 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :users, only: [:new, :create]
   resources :categories, only: [:index]
-  resources :orders, only: [:index, :show, :create]
+  resources :orders, only: [:index, :show, :create] do
+    resources :reservations, only: [:new, :create]
+  end
 
   namespace :admin do
     get '/dashboard', to: 'orders#index'
   end
-
 
   get '/dashboard', to: 'users#show'
   get '/login', to: 'sessions#new'
