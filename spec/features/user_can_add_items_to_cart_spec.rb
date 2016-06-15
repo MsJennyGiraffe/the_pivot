@@ -21,7 +21,6 @@ RSpec.feature "User can add an item to their cart" do
 
     expect(current_path).to eq("/cart")
     expect(page).to have_content("#{item.title}")
-    expect(page).to have_content("#{item.description}")
     expect(page).to have_content("#{item.price}")
     expect(page).to have_content("#{item.weight}")
     expect(page).to have_content("Total Price: $#{total_price}")
