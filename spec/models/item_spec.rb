@@ -40,5 +40,4 @@ RSpec.describe Item, type: :model do
     item = FactoryGirl.create(:item)
     expect(item.stock).to eq(0)
   end
-
 end
