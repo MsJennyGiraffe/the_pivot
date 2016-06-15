@@ -14,9 +14,5 @@ RSpec.feature "user can see featured items on homepage" do
     within(find_by_id("price")) do
       expect(page.text).to match(/^Price: \$\d+/)
     end
-
-    within(find_by_id("description")) do
-      expect(page.text).to match(/Description \d/)
-    end
   end
 end

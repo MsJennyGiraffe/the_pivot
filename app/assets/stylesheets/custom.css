@@ -30,5 +30,10 @@ media-body {
 
 img.resize{
   width: 150px;
-  height: auto;
+  margin: 0 auto;
+}
+
+img.table-resize{
+  width: 50px;
+  margin: 0 auto;
 }
