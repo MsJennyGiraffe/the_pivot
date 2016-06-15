@@ -1,23 +1,21 @@
 <div class="row">
   <div class="container col-md-8">
-    <% @items.each do |item| %>
+    <% items.each do |item| %>
     <div class="media">
       <div class="media-left .pull-left">
         <%= image_tag item.image_path, :class => "resize"%>
       </div>
       <div class="media-body .pull-right">
         <div class="panel panel-body">
-            <h3 id="title" class="media-heading"><%=link_to item.title, item_path(item) %></h3>
-            <div id="description"><%= item.description[0..75] %>...</div>
-            <hr>
-            <div id="weight">Item Weight: <%= item.weight %>lbs</div>
-            <hr>
-            <div id="price"><strong>Price: $<%= item.price %></strong></div>
-            <div class="text-center"><%= link_to "Add to Cart", cart_path(id: item.id), class: "btn btn-primary btn-sm active", method: :post %></div>
-            <hr>
-          </div>
+          <h3 id="title" class="media-heading"><%=link_to item.title, item_path(item) %></h3>
+          <hr>
+          <div id="weight">Item Weight: <%= item.weight %>lbs</div>
+          <hr>
+          <div id="price"><strong>Price: $<%= item.price %></strong></div>
+          <div class="text-center"><%= link_to "Add to Cart", cart_path(id: item.id), class: "btn btn-primary btn-sm active", method: :post %></div>
+          <hr>
         </div>
-    <!-- <div class="media-right .pull-right"> -->
+      </div>
     </div>
     <% end %>
   </div>
