@@ -22,9 +22,9 @@ RSpec.feature "user can checkout" do
     expect(page).to have_content("Select a Pick Up Time")
     expect(page).to have_content("Pick Up Hours:")
 
-    select("2016", :from => "reservation_pickup_time_1i")
-    select("June", :from => "reservation_pickup_time_2i")
-    select("15", :from => "reservation_pickup_time_3i")
+    time_to_select = (DateTime.now.beginning_of_day + 10.hour + 1.day).strftime("%b %e, %I:%M %p")
+
+    select(time_to_select, :from => "reservation_pickup_time")
 
     click_button "Make Reservation"
 
