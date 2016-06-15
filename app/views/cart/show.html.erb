@@ -33,7 +33,6 @@
                   <button class="btn btn-primary dropdown-toggle active" type="button" data-toggle="dropdown"> Qty: <%= cart_item.quantity %>
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu scrollable-menu">
-                      <div id="butts" type="button"><%= link_to "Remove", cart_path(id: cart_item.id), method: :delete, class:"btn btn-primary active" %></div>
                       <% quantity_range.each do |quantity| %>
                       <li><%= link_to quantity, cart_path(id: cart_item.id, quantity: quantity), method: :patch %></li>
                       <% end %>
@@ -46,6 +45,7 @@
             <% end %>
           </thead>
         </table>
+        <br><br><br><br><br><br><br><br><br>
       </div>
     </div>
   </div>
