@@ -25,9 +25,8 @@ RSpec.feature "user can checkout" do
 
     click_link "Checkout"
 
-    expect(current_path).to eq('/orders')
+    expect(current_path).to eq(new_order_reservation_path(Order.last))
     expect(page).to have_content("Order was successfully placed")
-    expect(page).to have_content Order.last.id
   end
   scenario "a visitor without an existing account can checkout" do
     item = FactoryGirl.create(:item)
@@ -54,7 +53,7 @@ RSpec.feature "user can checkout" do
 
     click_link "Checkout"
 
-    expect(current_path).to eq('/orders')
+    expect(current_path).to eq(new_order_reservation_path(Order.last))
     expect(page).to have_content("Order was successfully placed")
     expect(page).to have_content Order.last.id
     expect(page).to_not have_content("Login")
