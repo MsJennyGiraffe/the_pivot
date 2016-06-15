@@ -1,7 +1,5 @@
 <% if @cart.nil? %>
 No current items
-<% else %>
-<% quantity_range = 1..20 %>
 <% end %>
 
 <div class="panel panel-primary">
@@ -35,7 +33,7 @@ No current items
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu scrollable-menu">
                   <%= link_to "Remove", cart_path(id: cart_item.id), method: :delete %>
-                  <% quantity_range.each do |quantity| %>
+                  <% quantity_range(cart_item).each do |quantity| %>
                   <li><%= link_to quantity, cart_path(id: cart_item.id, quantity: quantity), method: :patch %></li>
                   <% end %>
                 </div>
