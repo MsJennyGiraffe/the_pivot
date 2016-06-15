@@ -1,20 +1,24 @@
 <div class="panel panel-primary">
-  <h1>Login</h1>
+  <h1 class="text-center">Login</h1>
 </div>
 
 <div class="panel panel-primary">
 
-<p><%=  link_to "Create Account", new_user_path  %></p>
 
-<%= form_for(:session, url: login_path) do |f| %>
+  <%= form_for(:session, url: login_path) do |f| %>
+  <br>
+  <div class="container">
+    <%= f.label :username, "Username" %>
+    <%= f.text_field :username, placeholder: "Enter Username", class: "text-center form-control" %>
+    <br>
+    <%= f.label :password, "Password" %>
+    <%= f.password_field :password, placeholder: "Enter Password", class: "text-center form-control" %>
+    <br>
+    <%= f.submit "Login", class: "btn btn-default btn-block" %>
+    <% end %>
 
-  <%= f.label :username, "Username" %>
-  <%= f.text_field :username %>
-
-  <%= f.label :password, "Password" %>
-  <%= f.password_field :password %>
-
-  <%= f.submit "Login" %>
-
-<% end %>
-</div>
+    <br>
+    <p>
+      <p><%= link_to "Create Account", new_user_path, class: "btn btn-default btn-block" %></p>
+    </div>
+  </div>
