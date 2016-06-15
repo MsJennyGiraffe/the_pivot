@@ -27,7 +27,6 @@ RSpec.feature "User can adjust item quantites in cart" do
     expect(page).to have_content "4"
 
     expect(page).to have_content "Total Price: $#{total_price_for_four}"
-
   end
 
   scenario "user decreases quantity" do
@@ -53,7 +52,6 @@ RSpec.feature "User can adjust item quantites in cart" do
   end
 
   scenario "user selects quantity that is in stock" do
-
     user = create(:user)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
@@ -77,9 +75,8 @@ RSpec.feature "User can adjust item quantites in cart" do
 
     click_link "Checkout"
 
-    expect(current_path).to eq(orders_path)
+    expect(current_path).to eq(new_order_reservation_path(Order.last))
     expect(page).to have_content("Order was successfully placed")
-    expect(page).to have_content("View Order")
   end
 
   scenario "user selects quantity that is in stock" do
