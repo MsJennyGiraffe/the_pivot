@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.feature "User logs in" do
 
   let(:user) { build(:user) }
@@ -50,5 +52,25 @@ RSpec.feature "User logs in" do
     click_link "Logout"
 
     expect(current_path).to eq("/login")
+  end
+
+  scenario "existing user can login" do
+    login_user
+
+    expect(current_path).to eq("/dashboard")
+    expect(page).to have_content("Logged in as user")
+  end
+
+  def login_user
+    user = User.create(username: "user",
+                       email: "email@example.com",
+                       password: "password")
+
+    expect(user).to be_valid
+
+    visit login_path
+    fill_in "Username", with: user.username
+    fill_in "Password", with: user.password
+    click_button "Login"
   end
 end

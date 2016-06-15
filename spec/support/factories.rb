@@ -29,13 +29,16 @@ FactoryGirl.define do
     password "password"
     username "username"
     email "email"
-    role "0"
+    role 0
   end
 
   factory :order do
     user
     status "ready"
-    items { create_list(:item, 3) }
+
+    factory :order_with_items do
+      items { create_list(:item, 3) }
+    end
   end
 
   factory :order_item do

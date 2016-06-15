@@ -1,18 +1,44 @@
 <div class="row">
   <div class="container col-md-8">
+    <div class="media">
+      <div class="col-xs-4 col-xs-offset-3">
+        <%= image_tag @item.image_path, :class => "media-object"%>
+      </div>
+      <div class="col-xs-12">
+        <div class="media-body">
+          <div class="panel panel-primary">
+            <div class="panel panel-body">
+              <h3 id="title" class="media-heading"><%=link_to @item.title, item_path(@item) %></h3>
+              <div id="description"><%= @item.description %></div>
+              <div id="weight">Weight: <%= @item.weight %>lbs</div>
+              <div id="price"><strong>$<%= @item.price %></strong></div>
+              <div class="text-center"><%= link_to "Add to Cart", cart_path(id: @item.id), class: "btn btn-primary btn-lg active", method: :post %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- <div class="row">
+  <div class="container col-md-8">
 
     <div class="media">
       <div class="media-left .pull-left">
         <%= image_tag @item.image_path, :class => "media-object"%>
       </div>
       <div class="media-body .pull-right">
-        <h3 id="title" class="media-heading"><%=link_to @item.title, item_path(@item) %></h3>
-        <div id="description"><%= @item.description %></div>
-        <div id="weight">Weight: <%= @item.weight %>lbs</div>
-        <div id="price"><strong>$<%= @item.price %></strong></div>
+        <div class="panel panel-primary">
+        <div class="panel panel-body">
+          <h3 id="title" class="media-heading"><%=link_to @item.title, item_path(@item) %></h3>
+          <div id="description"><%= @item.description %></div>
+          <div id="weight">Weight: <%= @item.weight %>lbs</div>
+          <div id="price"><strong>$<%= @item.price %></strong></div>
+        </div>
+        </div>
       </div>
     <div class="media-right .pull-right">
-      <button class="btn btn-primary active" type="button"><%= link_to "Add to cart", cart_path(id: @item.id), class: "btn btn-primary", method: :post %></button>
+      <div><%= link_to "Add to Cart", cart_path(id: @item.id), class: "btn btn-primary btn-lg active", method: :post %></div>
     </div>
   </div>
-</div>
+</div> -->
