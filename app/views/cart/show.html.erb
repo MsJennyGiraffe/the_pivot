@@ -1,7 +1,7 @@
 <% if @cart.nil? %>
-No current items
+  No current items
 <% else %>
-<% quantity_range = 1..20 %>
+  <% quantity_range = 1..20 %>
 <% end %>
 
 <div class="panel panel-primary">
@@ -9,43 +9,48 @@ No current items
 </div>
 <br>
 
-<div class="row">
-<div class="container col-md-8">
-  <% @cart_items.each do |cart_item| %>
+  <div class="well">
+    <div class=" table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <th></th>
+            <th>Item</th>
+            <th>Weight/Unit</th>
+            <th>Price/Unit</th>
+            <th>Total Weight</th>
+            <th>Total Price</th>
+            <th>Adjust Quantity</th>
+            <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td> <%= image_tag cart_item.item.image_path, class: "table-resize" %> </td>
+              <td> <%= cart_item.item.title %> </td>
+              <td> <%= cart_item.item.weight %> </td>
+              <td> <%= cart_item.item.price %> </td>
+              <td> <%= cart_item.subtotal_weight %> </td>
+              <td> <%= cart_item.subtotal_price %> </td>
+              <td>
+                <div id="butts" class="dropdown">
+                  <button class="btn btn-primary dropdown-toggle active" type="button" data-toggle="dropdown"> Qty: <%= cart_item.quantity %>
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu scrollable-menu">
+                      <div id="butts" type="button"><%= link_to "Remove", cart_path(id: cart_item.id), method: :delete, class:"btn btn-primary active" %></div>
+                      <% quantity_range.each do |quantity| %>
+                      <li><%= link_to quantity, cart_path(id: cart_item.id, quantity: quantity), method: :patch %></li>
+                      <% end %>
+                    </div>
+                </div>
+                </ul>
+              </td>
 
-  <div class="media">
-    <div class="media-left .pull-left">
-      <%= image_tag cart_item.image_path, :class => "media-object"%>
-    </div>
-    <div class="media-body .pull-right">
-      <div class="panel panel-primary">
-      <div class="panel panel-body">
-          <h3 id="title" class="media-heading"><%=link_to cart_item.title, cart_path(cart_item) %></h3>
-          <div id="description"><%= cart_item.description %></div>
-          <hr>
-          <div id="weight">Item Weight: <%= cart_item.weight %>lbs   -  Total Item Weight: <%= cart_item.subtotal_weight %>lbs</div>
-          <hr>
-          <div id="price"><strong>Unit Price: $<%= cart_item.price %></strong></div>
-          <hr>
-          <div><strong>Subtotal: $<%= cart_item.subtotal_price %></strong></div>
-        </div>
+            </tr>
+            <% end %>
+          </thead>
+        </table>
       </div>
-      </div>
-        <div class="media-right .pull-right">
-          <div id="butts" class="dropdown">
-            <button class="btn btn-primary dropdown-toggle active" type="button" data-toggle="dropdown"> Qty: <%= cart_item.quantity %>
-              <span class="caret"></span></button>
-              <ul class="dropdown-menu scrollable-menu">
-                <div id="butts" type="button"><%= link_to "Remove", cart_path(id: cart_item.id), method: :delete, class:"btn btn-primary active" %></div>
-                <% quantity_range.each do |quantity| %>
-                <li><%= link_to quantity, cart_path(id: cart_item.id, quantity: quantity), method: :patch %></li>
-                <% end %>
-              </div>
-          </div>
-          </ul>
-      <% end %>
     </div>
   </div>
+
+<div class="col-xs-12">
       <div class="panel panel-primary">
         <br>
         <h3 class="text-center">Pick Up Time Reservation</h3>
@@ -56,7 +61,9 @@ No current items
         <br>
         <% if current_user %>
           <div class="text-center"> <%= link_to "Checkout", orders_path, method: :post, class:"btn btn-primary active" %></div>
+          <br>
         <% else %>
           <div class="text-center"> <%= link_to "Login or Register to Checkout", login_path, class:"btn btn-primary active" %></div>
         <% end %>
       </div>
+    </div>
