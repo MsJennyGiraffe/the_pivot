@@ -107,5 +107,10 @@ RSpec.feature "User can adjust item quantites in cart" do
       expect(page).to have_content("5")
       expect(page).to_not have_content("6")
     end
+
+    click_link "Checkout"
+
+    item = Item.find(item.id)
+    expect(item.stock).to eq(4)
   end
 end
