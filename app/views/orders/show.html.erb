@@ -3,6 +3,7 @@
     <h1 class="text-center">Order Number <%= @order.id %></h1>
     <h4> Pickup Time: <%= @order.format_pickup_time %> </h4>
     <div>
+      <div class=" table-responsive">
       <table class="table table-bordered table-striped">
         <thead>
           <th>Item</th>
@@ -25,4 +26,5 @@
       </table>
     </div>
   </div>
+</div>
 </div>

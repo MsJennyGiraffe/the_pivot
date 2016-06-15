@@ -2,41 +2,4 @@
   <div class="text-center"><h1>Search Results</h1></div>
 </div>
 
-<div class="row">
-  <div class="container col-md-8">
-    <% @items.each do |item| %>
-
-    <div class="media">
-      <div class="media-left .pull-left">
-        <%= image_tag item.image_path, :class => "media-object"%>
-      </div>
-      <div class="media-body .pull-right">
-        <div class="panel panel-body">
-            <h3 id="title" class="media-heading"><%=link_to item.title, item_path(item) %></h3>
-            <hr>
-            <div id="weight">Item Weight: <%= item.weight %>lbs</div>
-            <hr>
-            <div id="price"><strong>Price: $<%= item.price %></strong></div>
-            <hr>
-          </div>
-        </div>
-    <div class="media-right .pull-right">
-      <div><%= link_to "Add to Cart", cart_path(id: item.id), class: "btn btn-primary btn-lg active", method: :post %></div>
-    </div>
-    <% end %>
-  </div>
-</div>
-
-
-<!--
-<div class="row">
-<% @items.each do |item| %>
-  <div class="col-md-3">
-    <div class="panel panel-primary">
-      <p class="text-center"><%= image_tag item.image_path %></p>
-      <h3 class="text-center"><%= link_to item.title, item_path(item) %></h3>
-      <p class="text-center">$<%= item.price %></p>
-    </div>
-  </div>
-<% end %>
-</div> -->
+<%= render partial: "shared/item", locals: { items: @items } %>
