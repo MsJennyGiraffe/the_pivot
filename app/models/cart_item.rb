@@ -14,4 +14,8 @@ class CartItem < SimpleDelegator
   def subtotal_weight
     item.weight * quantity.to_i
   end
+
+  def to_order_item
+    OrderItem.new(item: item, quantity: quantity)
+  end
 end
