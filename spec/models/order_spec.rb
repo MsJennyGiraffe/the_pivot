@@ -36,16 +36,11 @@ RSpec.describe Order, type: :model do
 
     expect(cart.contents).to eq( { item.id.to_s => 1  })
 
-    # order = FactoryGirl.create(:order, user_id: user.id)
-    # expect(order.user).to eq(user)
-    # order.record_order_items(cart)
-
     order = Order.from_cart(cart, user: user)
     order.update_attribute(:status, "completed")
     order.save
     expect(order.user).to eq(user)
     expect(order.order_items.length).to eq(1)
     expect(order.items.last).to eq(item)
-    # expect(order.items.last).to eq(item)
   end
 end

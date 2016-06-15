@@ -7,7 +7,6 @@ class OrdersController < ApplicationController
   def create
     if current_user
       @order = Order.from_cart(@cart, user: current_user)
-      # @order.record_order_items(@cart)
       @order.update_attribute(:status, "completed")
       if @order.save
         session.delete :cart
