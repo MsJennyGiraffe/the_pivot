@@ -30,5 +30,17 @@ media-body {
 
 img.resize{
   width: 150px;
-  height: auto;
+  /*height: auto;*/
+  margin: 0 auto;
 }
+
+img.table-resize{
+  width: 50px;
+  /*height: auto;*/
+  margin: 0 auto;
+}
+
+/*.cart_table{
+  width: 100%;
+  overflow: scroll;
+}*/
