@@ -55,7 +55,6 @@ RSpec.feature "user can checkout" do
 
     expect(current_path).to eq(new_order_reservation_path(Order.last))
     expect(page).to have_content("Order was successfully placed")
-    expect(page).to have_content Order.last.id
     expect(page).to_not have_content("Login")
 
     click_link "Logout"
