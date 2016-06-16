@@ -1,21 +1,23 @@
 <div class="panel panel-primary">
-  <h3>Select a Pick Up Time</h3>
+  <h3 class="text-center">Select a Pick Up Time</h3>
 </div>
 
 <div class="well well-sm">
 
-  <ul class="text-center"><strong>Pick Up Hours:</strong>
-    <li>Tuesday - Saturday</li>
-    <li>10:00am - 3:00pm</li>
-  </ul>
+  <h4 class="text-center"><strong>Pick Up Hours:</strong></h4>
+    <div class= "text-center">
+      <p>Tuesday - Saturday</p>
+      <p>10:00am - 3:00pm</p>
+    </div>
   <br>
-
-<div class="text-center">
-
-<%= form_for([@order, @reservation]) do |f| %>
-  <%= f.label :pickup_time, "Select Pickup Time" %>
-  <%= f.select :pickup_time, options_for_select(Reservation.generate_available_dates.map { |time| [ time.strftime("%b %e, %I:%M %p"), time] }) %>
-  <%= f.submit "Make Reservation" %>
-<% end %>
+<div class="row">
+  <div class= "col-md-6 col-md-offset-3 text-center">
+  <!-- <div class="text-center"> -->
+    <%= form_for([@order, @reservation]) do |f| %>
+    <%= f.label :pickup_time, "Select Pickup Time", class: :form_control %>
+    <%= f.select :pickup_time, options_for_select(Reservation.generate_available_dates.map { |time| [ time.strftime("%b %e, %I:%M %p"), time] }) %>
+    <button class="btn btn-primary"><%= f.submit "Make Reservation" %></button>
+    <% end %>
   </div>
 </div>
+</div
