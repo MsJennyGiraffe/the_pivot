@@ -6,16 +6,19 @@ class OrdersController < ApplicationController
 
   def create
     if current_user
-      @order = current_user.orders.new(status: "ready")
+      @order = Order.from_cart(@cart, user: current_user)
+      @order.update_attribute(:status, "completed")
+
       if @order.save
-        @order.record_order_items(@cart)
+        @cart.cart_items.each do |cart_item|
+          cart_item_id = cart_item.id
+          item = Item.find(cart_item_id)
+          item.stock = item.stock - cart_item.quantity.to_i
+          item.save
+        end
         session.delete :cart
         flash[:success] = "Order was successfully placed"
-        redirect_to orders_path
-      else
-        # what would cause an order not to save?
-        # flash[:warning] = "Please log in to place an order"
-        # redirect_to login_path
+        redirect_to new_order_reservation_path(@order)
       end
     end
   end

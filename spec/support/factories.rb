@@ -45,4 +45,9 @@ FactoryGirl.define do
     order
     item
   end
+
+  factory :reservation do
+    pickup_time DateTime.now.beginning_of_day + 10.hour + 1.day
+    order { build(:order_with_items) }
+  end
 end
