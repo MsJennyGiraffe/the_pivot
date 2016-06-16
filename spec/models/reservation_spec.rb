@@ -22,7 +22,6 @@ RSpec.describe Reservation, type: :model do
     expect(result.length).to eq(6)
   end
 
-
   it "can find all booked times in the database" do
     create(:reservation)
     time = DateTime.now.beginning_of_day + 10.hour + 1.day

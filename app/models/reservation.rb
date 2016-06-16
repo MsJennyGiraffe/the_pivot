@@ -7,7 +7,7 @@ class Reservation < ActiveRecord::Base
   validates :pickup_time, presence: true
 
   def self.generate_available_dates
-    ReservationHelper.all_dates.find_all do |time|
+    ReservationHelper.all_dates.select do |time|
       !ReservationHelper.booked_times.include?(time)
     end
   end
