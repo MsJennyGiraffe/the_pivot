@@ -4,14 +4,17 @@
     <div class="container">
       <table class="table table-bordered table-striped">
         <th>Order Number</th>
+        <th>User ID</th>
         <th></th>
         <% @orders.each do |order| %>
         <tr>
-          <td><%= order.id %> </td>
-          <td><%= link_to "View Order", order_path(order) %></td>
+          <td> <%= order.id %> </td>
+          <td> <%= order.user_id %>
+          <td> <%= link_to "View Order", order_path(order) %></td>
         </tr>
         <% end %>
       </table>
+      <p> <%= link_to "Create Item", new_admin_item_path %>
     </div>
   </div>
 </div>

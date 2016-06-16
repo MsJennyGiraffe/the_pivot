@@ -6,5 +6,4 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.joins(:items).uniq
   end
-
 end
