@@ -1,19 +1,17 @@
 <div class="row">
   <div class="container col-md-8">
     <% items.each do |item| %>
-    <div class="panel panel-body">
+    <div class="well well-sm">
     <div class="media">
       <div class="media-left .pull-left">
         <%= image_tag item.image_path, :class => "resize"%>
       </div>
       <div class="media-body .pull-right">
           <h3 id="title" class="media-heading text-center"><%=link_to item.title, item_path(item) %></h3>
-          <hr>
           <div id="weight" class="text-center">Item Weight: <%= item.weight %>lbs</div>
-          <hr>
           <div id="price" class="text-center"><strong>Price: $<%= item.price %></strong></div>
-          <div class="text-center"><%= link_to "Add to Cart", cart_path(id: item.id), class: "btn btn-primary btn-sm active", method: :post %></div>
           <hr>
+          <div class="text-center"><%= link_to "Add to Cart", cart_path(id: item.id), class: "btn btn-primary btn-sm active", method: :post %></div>
         </div>
       </div>
     </div>
