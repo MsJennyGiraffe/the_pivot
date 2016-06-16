@@ -7,13 +7,13 @@
   <%= form_for(@user) do |f| %>
   <div class="container">
     <%= f.label :username, "Username", class: "text-center" %>
-    <%= f.text_field :username, placeholder: "Enter Username", class: "text-center form-control" %>
+    <%= f.text_field :username, placeholder: "Enter Username", class: "form-control" %>
     <br>
     <%= f.label :email, "Email", class: "text-center" %>
-    <%= f.text_field :email, placeholder: "Enter E-mail", class: "text-center form-control" %>
+    <%= f.text_field :email, placeholder: "Enter E-mail", class: "form-control" %>
     <br>
     <%= f.label :password, "Password", class: "text-center" %>
-    <%= f.password_field :password, placeholder: "Enter Password", class: "text-center form-control" %>
+    <%= f.password_field :password, placeholder: "Enter Password", class: "form-control" %>
     <br>
     <%= f.submit "Create Account", class: "btn btn-default btn-block" %>
   </div>
