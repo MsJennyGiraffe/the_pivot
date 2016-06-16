@@ -12,11 +12,10 @@ class Order < ActiveRecord::Base
   end
 
   def completed?
-    self.status == "completed"
+    status == "completed"
   end
 
   def format_pickup_time
     reservation.pickup_time.strftime("%b %e, %I:%M %p")
   end
-
 end

@@ -5,7 +5,9 @@ class Reservation < ActiveRecord::Base
   validates :pickup_time, presence: true
 
   def self.generate_date_range
-    time_range = (DateTime.now.beginning_of_day + 10.hour + 1.day .. DateTime.now.beginning_of_day + 15.hour + 1.day)
+    start = DateTime.now.beginning_of_day + 10.hour + 1.day 
+    stop = DateTime.now.beginning_of_day + 15.hour + 1.day
+    time_range = start..stop
     result = []
     current_time = time_range.first
     until current_time == time_range.last + 1.hour
@@ -14,5 +16,4 @@ class Reservation < ActiveRecord::Base
     end
     result
   end
-
 end
