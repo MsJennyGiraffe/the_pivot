@@ -1,18 +1,22 @@
 class Reservation < ActiveRecord::Base
+  include ReservationHelper
+
   belongs_to :order
 
   validates :order, presence: true
   validates :pickup_time, presence: true
 
-  def self.generate_date_range
-    time_range = (DateTime.now.beginning_of_day + 10.hour + 1.day .. DateTime.now.beginning_of_day + 15.hour + 1.day)
-    result = []
-    current_time = time_range.first
-    until current_time == time_range.last + 1.hour
-      result << current_time
-      current_time = current_time.advance(hours: 1)
+  def self.generate_available_dates
+    ReservationHelper.all_dates.select do |time|
+      !ReservationHelper.booked_times.include?(time)
     end
-    result
   end
 
+  def self.get_booked_times
+    ReservationHelper.booked_times
+  end
+
+  def self.get_all_dates
+    ReservationHelper.all_dates
+  end
 end

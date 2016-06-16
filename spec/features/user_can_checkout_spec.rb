@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature "user can checkout" do
-  scenario "a logged in user can checkout" do
-    item = FactoryGirl.create(:item)
+  let(:item) { create(:item) }
+  let(:order) { create(:order) }
+  let(:user) { create(:user) }
 
-    user = FactoryGirl.create(:user)
+  scenario "a logged in user can checkout" do
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).
       and_return(user)
 
