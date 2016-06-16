@@ -6,10 +6,10 @@ class OrdersController < ApplicationController
 
   def create
     if current_user
-      @order = current_user.orders.new(status: "ready")
-      if @order.save
-        @order.record_order_items(@cart)
+      @order = Order.from_cart(@cart, user: current_user)
+      @order.update_attribute(:status, "completed")
 
+      if @order.save
         @cart.cart_items.each do |cart_item|
           cart_item_id = cart_item.id
           item = Item.find(cart_item_id)
@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
         end
         session.delete :cart
         flash[:success] = "Order was successfully placed"
-        redirect_to orders_path
+        redirect_to new_order_reservation_path(@order)
       end
     end
   end

@@ -25,7 +25,7 @@ RSpec.describe Order, type: :model do
     it { expect(order_instance).to validate_presence_of(:user) }
   end
 
-  it "correct order is created from cart items" do 
+  it "correct order is created from cart items" do
     user = FactoryGirl.create(:user)
     item = FactoryGirl.create(:item)
 
@@ -36,12 +36,10 @@ RSpec.describe Order, type: :model do
 
     expect(cart.contents).to eq( { item.id.to_s => 1  })
 
-    order = FactoryGirl.create(:order, user_id: user.id)
-
+    order = Order.from_cart(cart, user: user)
+    order.update_attribute(:status, "completed")
+    order.save
     expect(order.user).to eq(user)
-
-    order.record_order_items(cart)
-
     expect(order.order_items.length).to eq(1)
     expect(order.items.last).to eq(item)
   end

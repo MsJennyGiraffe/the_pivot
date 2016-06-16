@@ -13,7 +13,6 @@ class CartController < ApplicationController
       flash[:no_items] = "Your cart is currently empty"
     else
       @cart_items = @cart.cart_items
-
     end
   end
 
