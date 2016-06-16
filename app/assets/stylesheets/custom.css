@@ -1,5 +1,9 @@
+* {
+
+  font-family: 'VT323', monospace;
+}
 body {
-    background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/iPad-warm-wood-wallpaper.jpg");
+  background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/iPad-warm-wood-wallpaper.jpg");
 }
 
 img {
@@ -8,7 +12,6 @@ img {
 }
 
 media-body {
-  /*text-overflow: ellipsis;*/
   white-space: nowrap;
 }
 
@@ -36,4 +39,8 @@ img.resize{
 img.table-resize{
   width: 50px;
   margin: 0 auto;
+}
+
+.img-responsive {
+    margin: 0 auto;
 }
