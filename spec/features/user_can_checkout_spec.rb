@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature "user can checkout" do
-
   let(:item) { create(:item) }
   let(:order) { create(:order) }
   let(:user) { create(:user) }
