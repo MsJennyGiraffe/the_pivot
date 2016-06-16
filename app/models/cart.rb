@@ -39,4 +39,8 @@ class Cart
   def delete(item_id)
     @contents.delete(item_id)
   end
+
+  def to_order_items
+    cart_items.map(&:to_order_item)
+  end
 end

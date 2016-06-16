@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 20160615035948) do
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
+  create_table "reservations", force: :cascade do |t|
+    t.datetime "pickup_time"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "order_id"
+  end
+
+  add_index "reservations", ["order_id"], name: "index_reservations_on_order_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password_digest"
@@ -70,4 +79,5 @@ ActiveRecord::Schema.define(version: 20160615035948) do
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "users"
+  add_foreign_key "reservations", "orders"
 end

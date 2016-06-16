@@ -2,17 +2,21 @@ class Order < ActiveRecord::Base
   belongs_to :user
   has_many :order_items
   has_many :items, through: :order_items
+  has_one :reservation
 
   validates :user, presence: :true
   validates :status, presence: :true
 
-  def record_order_items(cart)
-    cart.cart_items.each do |cart_item|
-      order_item = OrderItem.new
-      order_item.order_id = self.id
-      order_item.item = cart_item.item
-      order_item.quantity = cart_item.quantity
-      order_item.save
-    end
+  def self.from_cart(cart, user: nil)
+    new(user: user).tap { |order| order.order_items = cart.to_order_items }
   end
+
+  def completed?
+    self.status == "completed"
+  end
+
+  def format_pickup_time
+    reservation.pickup_time.strftime("%b %e, %I:%M %p")
+  end
+
 end
