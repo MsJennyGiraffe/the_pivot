@@ -1,7 +1,7 @@
 module ReservationHelper
 
   def self.all_dates
-    start = DateTime.now.beginning_of_day + 10.hour + 1.day 
+    start = DateTime.now.beginning_of_day + 10.hour + 1.day
     stop = DateTime.now.beginning_of_day + 15.hour + 1.day
     time_range = start..stop
     result = []
