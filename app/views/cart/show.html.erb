@@ -11,25 +11,19 @@ No current items
   <div class=" table-responsive">
     <table class="table table-bordered table-striped">
       <thead>
-        <th></th>
         <th>Item</th>
-        <th>Weight/Unit</th>
-        <th>Price/Unit</th>
-        <th>Total Weight</th>
-        <th>Total Price</th>
-        <th>Adjust Quantity</th>
+        <th>Quantity</th>
+        <th>Subtotal <br> Weight</th>
+        <th>Subtotal <br> price</th>
         <% @cart_items.each do |cart_item| %>
         <tr>
-          <td> <%= image_tag cart_item.item.image_path, class: "table-resize" %> </td>
-          <td> <%= cart_item.item.title %> </td>
-          <td> <%= cart_item.item.weight %> </td>
-          <td> <%= cart_item.item.price %> </td>
-          <td> <%= cart_item.subtotal_weight %> </td>
-          <td> <%= cart_item.subtotal_price %> </td>
           <td>
-
+            <%= image_tag cart_item.item.image_path, class: "table-resize" %><br>
+            <%= cart_item.title %>
+          </td>
+          <td>
             <div id="butts" class="dropdown">
-              <button class="btn btn-primary dropdown-toggle active" type="button" data-toggle="dropdown"> Qty: <%= cart_item.quantity %>
+              <button class="btn btn-primary dropdown-toggle active" type="button" data-toggle="dropdown"><%= cart_item.quantity %>
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu scrollable-menu">
                   <%= link_to "Remove", cart_path(id: cart_item.id), method: :delete %>
@@ -39,10 +33,11 @@ No current items
                 </div>
               </div>
             </ul>
-
           </div>
         </td>
+          <td> <%= cart_item.subtotal_weight %> </td>
 
+          <td> <%= cart_item.subtotal_price %> </td>
       </tr>
       <% end %>
     </thead>

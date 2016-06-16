@@ -1,0 +1,35 @@
+<div class="well">
+  <div class="container">
+    <h1 class="text-center">Edit Order: <%= @order.id %></h1>
+    <h3 class="text-center"> Current Status: <%= @order.status %> </h3>
+    <%= form_tag(admin_order_path(order: { id: @order.id }), method: :patch, class: "text-center") do %>
+      <%= select_tag(:order_status, options_for_select(status_array)) %>
+      <%= submit_tag "Change Status" %>
+    <% end %>
+    <div>
+      <div class=" table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Weight/Unit</th>
+          <th>Price/Unit</th>
+          <th>Total Weight</th>
+          <th>Total Price</th>
+          <% @order.order_items.each do |order_item| %>
+          <tr>
+            <td> <%= order_item.item.title %> </td>
+            <td> <%= order_item.quantity %> </td>
+            <td> <%= order_item.item.weight %> </td>
+            <td> <%= order_item.item.price %> </td>
+            <td> <%= order_item.item.weight * order_item.quantity %> </td>
+            <td> <%= order_item.item.price * order_item.item.price %> </td>
+                <% end %>
+
+      </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
+</div>

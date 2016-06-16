@@ -7,49 +7,52 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Plummy Pickens</a>
-      <ul>
-        <%= link_to "View Cart", cart_path, class:"navbar-brand" %>
-
-      </div>
-
-      <div class="nav navbar-form">
-        <%= form_tag(search_path, :method => "GET") do %>
-        <div class="col-xs-8 col-md-6">
-          <%= text_field_tag :search, params[:search], placeholder: "Store Quick Search", class: "form-control text-center" %>
+      <div>
+        <a class="navbar-brand" href="/">Plummy Pick'ns</a>
+        <ul>
+          <%= link_to "View Cart", cart_path, class:"navbar-brand" %>
         </div>
-        <div class="col-xs-4">
-          <%= submit_tag "Search", class:"btn btn-default" %>
-        </div>
-        <% end %>
-      </div>
+        <div>
 
+          <div class="nav navbar-form">
+            <%= form_tag(search_path, :method => "GET") do %>
+            <div class="col-xs-8 col-md-2">
+              <%= text_field_tag :search, params[:search], placeholder: "Store Quick Search", class: "form-control text-center" %>
+            </div>
+            <div class="col-xs-4">
+              <%= submit_tag "Search", class:"btn btn-default" %>
+            </div>
+            <% end %>
+          </div>
 
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <% if current_user %>
-          <li class="navbar-text", id: "welcome">Logged in as <%= current_user.username %> </li>
-          <li><%= link_to "Logout", logout_path, method: :delete %></li>
-          <% else %>
-          <li><%= link_to "Login", login_path %></li>
-          <li><%= link_to "Sign Up", new_user_path %></li>
-          <% end %>
-          <ul class="nav navbar-nav navbar-left">
-            <li id="items"><%= link_to "Items", items_path %></li>
-            <li class="dropdown">
-              <a href="/categories" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="/clothing">Clothing</a></li>
-                <li><a href="/ammunition">Ammunition</a></li>
-                <li><a href="/livestock">Livestock</a></li>
-                <li><a href="/parts">Parts</a></li>
-                <li><a href="/food">Food</a></li>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <% if current_user %>
+              <li class="navbar-text", id: "welcome">Logged in as <%= current_user.username %> </li>
+                <% if current_user.admin? %>
+                  <li><%= link_to "Admin Dashboard", admin_orders_path  %></li>
+                <% end %>
+              <li><%= link_to "Logout", logout_path, method: :delete %></li>
+              <% else %>
+              <li><%= link_to "Login", login_path %></li>
+              <li><%= link_to "Sign Up", new_user_path %></li>
+              <% end %>
+              <ul class="nav navbar-nav navbar-left">
+                <li id="items"><%= link_to "Items", items_path %></li>
+                <li class="dropdown">
+                  <a href="/categories" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/clothing">Clothing</a></li>
+                    <li><a href="/ammunition">Ammunition</a></li>
+                    <li><a href="/livestock">Livestock</a></li>
+                    <li><a href="/parts">Parts</a></li>
+                    <li><a href="/food">Food</a></li>
+                  </ul>
+                </li>
               </ul>
-            </li>
-          </ul>
+            </ul>
+          </li>
         </ul>
-      </li>
-    </ul>
-  </div>
-</div>
-</nav>
+      </div>
+    </div>
+  </nav>

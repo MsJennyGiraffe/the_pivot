@@ -70,7 +70,7 @@ RSpec.feature "User can adjust item quantites in cart" do
     click_link "Add to Cart"
 
     visit '/cart'
-    click_button "Qty: 1"
+    click_button "1"
     click_link "10"
 
     click_link "Checkout"
@@ -98,7 +98,7 @@ RSpec.feature "User can adjust item quantites in cart" do
     click_link "Add to Cart"
 
     visit '/cart'
-    click_button "Qty: 1"
+    click_button "1"
 
     within("#butts") do
       expect(page).to have_content("5")
