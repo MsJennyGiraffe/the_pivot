@@ -35,6 +35,7 @@ FactoryGirl.define do
     description { generate(:description) }
     category
     starting_bid { rand(1..99) }
+    user
     image_path "https://image.freepik.com/free-icon/wagon_318-116334.png"
   end
 end

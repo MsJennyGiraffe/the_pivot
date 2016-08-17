@@ -1,6 +1,7 @@
 class CartController < ApplicationController
   include CartHelper
   def create
+
     @item = Item.find(params[:id])
     if current_user
       @cart.add_item(@item.id)
@@ -10,10 +11,10 @@ class CartController < ApplicationController
     else
       if params[:type] == "bid"
         flash[:warning] = "Login to Bid"
-        redirect_to item_path(@item)
+        redirect_to user_item_path(user_slug: @item.user.slug, id: @item.id)
       else
         flash[:warning] = "Login to Buyout"
-        redirect_to item_path(@item)
+        redirect_to user_item_path(user_slug: @item.user.slug, id: @item.id)
       end
     end
   end

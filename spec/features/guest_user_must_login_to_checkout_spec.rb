@@ -9,7 +9,7 @@ RSpec.feature "Checkout" do
     fill_in :bid, with: ( item.starting_bid + 1 )
     click_link "Bid"
 
-    # expect(current_path).eq("#{item.username}/#{item.title}")
+    expect(current_path).to eq("/#{item.user.slug}/items/#{item.id}")
     expect(page).to have_content ("Login to Bid")
   end
 
@@ -20,7 +20,7 @@ RSpec.feature "Checkout" do
     click_link "#{item.title}"
     click_link "Snap it Up"
 
-    # expect(current_path).eq("#{item.username}/#{item.title}")
+    expect(current_path).to eq("/#{item.user.slug}/items/#{item.id}")
     expect(page).to have_content ("Login to Buyout")
   end
 end
