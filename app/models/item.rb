@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   belongs_to :category
-  validates :category, presence: true
+  belongs_to :user
 
   validates :title, presence: true
   validates :description, presence: true
