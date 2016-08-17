@@ -5,7 +5,7 @@ class SellersController < ApplicationController
   end
 
   def show
-    @seller = User.find(params[:id])
+    @seller = User.find_by(slug: params[:user_slug])
   end
 
   private

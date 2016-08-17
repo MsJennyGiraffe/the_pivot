@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   delete "/cart", to: "cart#destroy"
 
   get '/search', to: 'search#index'
-
+  get '/:user_slug', to: 'sellers#show'
   get '/:category_title', to: 'categories#show'
 end
 
