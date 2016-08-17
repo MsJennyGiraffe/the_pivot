@@ -3,7 +3,6 @@ class Item < ActiveRecord::Base
   validates :category, presence: true
 
   validates :title, presence: true
-  validates :price, presence: true
   validates :description, presence: true
   validates :image_path, presence: true
 

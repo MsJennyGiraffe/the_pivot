@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
+
   resources :items, only: [:index, :show]
   resources :users, only: [:new, :create]
   resources :categories, only: [:index]
+  resources :sellers, only: [:index, :show]
   resources :orders, only: [:index, :show, :create] do
     resources :reservations, only: [:new, :create]
   end
