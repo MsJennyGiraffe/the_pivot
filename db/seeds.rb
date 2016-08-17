@@ -58,13 +58,13 @@ class Seed
 
   def add_customers
     josh = User.create!({
-      username: "jmejia@turing.io",
-      password: "password",
-      email: "jmejia@turing.io",
-      first_name: "Josh",
-      last_name: "Mejia",
+      username:    "jmejia@turing.io",
+      password:    "password",
+      email:       "jmejia@turing.io",
+      first_name:  "Josh",
+      last_name:   "Mejia",
       description: Faker::Hipster.paragraph(2)
-      })
+    })
     add_orders(josh)
     puts "Josh Created"
 
@@ -88,7 +88,7 @@ class Seed
       Order.create!({
         status: "completed",
         user_id: user.id
-        })
+      })
       puts "Order Created"
     end
   end
