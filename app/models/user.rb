@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   after_create :set_default_role
 
   has_many :orders
+  has_many :items
 
   validates :username, presence: true
   validates :password_digest, presence: true
@@ -12,6 +13,6 @@ class User < ActiveRecord::Base
   enum role: [:default, :admin]
 
   def set_default_role
-    self.update(role: 0 ) unless self.role 
+    self.update(role: 0 ) unless self.role
   end
 end
