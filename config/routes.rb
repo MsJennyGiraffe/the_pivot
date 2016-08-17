@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   resources :items, only: [:index, :show]
   resources :users, only: [:new, :create, :edit, :show, :update]
-  resources :categories, only: [:index]
+  resources :categories, only: [:index, :show], param: :name
   resources :sellers, only: [:index, :show]
   resources :orders, only: [:index, :show, :create] do
     resources :reservations, only: [:new, :create]
@@ -29,7 +29,6 @@ Rails.application.routes.draw do
 
   get '/search', to: 'search#index'
   get '/:user_slug', to: 'sellers#show'
-  get '/:category_title', to: 'categories#show'
 end
 
   # get "/stores/:slug", to: "stores#show", as: "store"
