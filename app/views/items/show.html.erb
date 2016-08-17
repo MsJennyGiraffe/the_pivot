@@ -8,6 +8,10 @@
         <input type="text" class="form-control" id="bid">
       </div>
     </form>
-      <div class="text-center", id="bid"><%= link_to "Bid", cart_path(id: @item.id), class: "btn btn-primary btn-lg active", method: :post %></div>
+      <div class="text-center", id="bid"><%= link_to "Bid", cart_path(id: @item.id, type: "bid"), class: "btn btn-primary btn-lg active", method: :post %></div>
+      <% if @item.buyout_price %>
+      <div class="text-center"> Buyout Price: <%= @item.buyout_price %> </div>
+      <div class="text-center", id="buyout"><%= link_to "Snap it Up", cart_path(id: @item.id, type: "buyout"), class: "btn btn-primary btn-lg active", method: :post %></div>
+      <% end %>
     </div>
   </div>

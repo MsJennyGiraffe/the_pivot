@@ -8,8 +8,13 @@ class CartController < ApplicationController
       flash[:success] = "#{@item.title} has been added to cart."
       redirect_to cart_path
     else
-      flash[:warning] = "Login to Bid"
-      redirect_to item_path(@item)
+      if params[:type] == "bid"
+        flash[:warning] = "Login to Bid"
+        redirect_to item_path(@item)
+      else
+        flash[:warning] = "Login to Buyout"
+        redirect_to item_path(@item)
+      end
     end
   end
 
