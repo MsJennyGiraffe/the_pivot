@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
-
+  namespace :user, path: ":user_slug", as: :user do
+    resources :items, only: [:show]
+  end
   resources :items, only: [:index, :show]
   resources :users, only: [:new, :create]
   resources :categories, only: [:index]
@@ -30,3 +32,9 @@ Rails.application.routes.draw do
 
   get '/:category_title', to: 'categories#show'
 end
+
+  # get "/stores/:slug", to: "stores#show", as: "store"
+  #
+  # namespace :store, path: ":store_slug" do
+  #   resources :items, only: [:index, :show]
+  # end
