@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 
   resources :items, only: [:index, :show]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :edit, :show, :update]
   resources :categories, only: [:index]
   resources :sellers, only: [:index, :show]
   resources :orders, only: [:index, :show, :create] do
@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     resources :items, only: [:new, :create]
   end
 
-  get '/dashboard', to: 'users#show'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

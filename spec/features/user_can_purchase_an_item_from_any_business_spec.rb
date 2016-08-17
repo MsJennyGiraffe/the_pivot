@@ -36,7 +36,6 @@ RSpec.feature "a user can purchase items from multiple businesses" do
 
       expect(current_path).to eq(cart_path)
 
-      save_and_open_page
       click_link "Checkout"
 
   end
