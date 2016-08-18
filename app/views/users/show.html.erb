@@ -6,3 +6,5 @@
   <p class="text-center"><strong>Welcome <%= current_user.username  %></strong></p>
   <p class="text-center">Email: <%= current_user.email %> </p>
 </div>
+
+<%= button_to "Add Item", new_user_item_path(current_user.slug),  method: :get %>

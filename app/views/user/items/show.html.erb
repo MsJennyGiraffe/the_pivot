@@ -4,6 +4,9 @@
     <div class="text-center"><%= @item.description %></div>
     <form>
       <div class="form-group">
+        <label for="bid">Expiration Time <%= @item.expiration_time %></label>
+      </div>
+      <div class="form-group">
         <label for="bid">Current Bid: <%= @item.starting_bid %></label>
         <input type="text" class="form-control" id="bid">
       </div>
