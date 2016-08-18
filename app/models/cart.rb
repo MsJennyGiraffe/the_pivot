@@ -24,18 +24,6 @@ class Cart
     end
   end
 
-  def total_price
-    cart_items.reduce(0) do |sum, cart_item|
-      sum + cart_item.subtotal_price
-    end
-  end
-
-  def total_weight
-    cart_items.reduce(0) do |sum, cart_item|
-      sum + cart_item.subtotal_weight
-    end
-  end
-
   def delete(item_id)
     @contents.delete(item_id)
   end

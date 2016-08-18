@@ -1,11 +1,34 @@
-<div class="text-center">
-  <img id="homepage_image" src="https://s-media-cache-ak0.pinimg.com/736x/d8/62/9b/d8629b948ca82b40ee180da2987dde9d.jpg" alt="" />
+<div class="col-md-8">
+  <div class="text-center"><h1>Geek AF -- Hot Items</h1></div>
+  <div class="row">
+    <% @items.each do |item| %>
+    <div class="col-md-3">
+      <h2><%= item.title %></h2>
+      <%= image_tag item.image_path, class: "img-responsive" %>
+      <h4>Starting Bid: <%= item.starting_bid %></h4>
+      <% if item.buyout_price %>
+      <h4>Snap it Up: <%= item.buyout_price %></h4>
+      <% end %>
+      <h4><%=h truncate(item.description, :length => 100) %></h4>
+      <div class="text-center"><%= link_to "View Item", item_path(item), class: "btn btn-primary" %></div>
+    </div>
+    <% end %>
+  </div>
 </div>
 
-<br>
-<br>
-<div class="panel panel-primary">
-  <h4 class="text-center">Featured Items</h4>
+
+<div class="col-md-4">
+  <div class="jumbotron">
+    <h1 class="text-center"> Become a Seller! </h1>
+    <p class="text-center"><%= Faker::Hipster.paragraph %></p>
+    <div class="text-center"> <%= link_to "Apply Now", login_path, class: "btn btn-primary" %></div>
+  </div>
 </div>
-<br>
-<%= render partial: "shared/item", locals: { items: @items } %>
+
+
+
+
+<br><br>
+<div class="col-md-12">
+  <%= link_to "View all sellers", sellers_path, class: "btn btn-default" %>
+</div>

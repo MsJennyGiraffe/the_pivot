@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       if @cart.contents.empty?
-        redirect_to user_dashboard_path
+        redirect_to user_path(@user)
       else
         redirect_to cart_path
       end

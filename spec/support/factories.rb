@@ -1,53 +1,41 @@
 FactoryGirl.define do
+  sequence :username do |n|
+    "User #{n}"
+  end
 
-  sequence :item_title do |n|
-    "Item Title #{n}"
+  sequence :email do |n|
+    "example#{n}@example.com"
+  end
+
+  sequence :title do |n|
+    "Item #{n}"
   end
 
   sequence :description do |n|
     "Description #{n}"
   end
 
-  factory :item do |n|
-    title { generate(:item_title) }
-    price { rand(1..10) }
-    description
-    image_path "https://image.freepik.com/free-icon/wagon_318-116334.png"
-    category
-    weight 10
+  sequence :category_name do |n|
+    "Category #{n}"
   end
 
-  sequence :category_title do |n|
-    "Category_#{n}"
-  end
-
-  factory :category do
-    title { generate(:category_title) }
-  end
-
-  factory :user do
+  factory :user do |n|
+    username { generate(:username) }
     password "password"
-    username "username"
-    email "email"
-    role 0
+    email { generate(:email) }
   end
 
-  factory :order do
+  factory :category do |n|
+    title { generate(:category_name)}
+  end
+
+  factory :item do |n|
+    title { generate(:title) }
+    buyout_price { rand(100..1000) }
+    description { generate(:description) }
+    category
+    starting_bid { rand(1..99) }
     user
-    status "ready"
-
-    factory :order_with_items do
-      items { create_list(:item, 3) }
-    end
-  end
-
-  factory :order_item do
-    order
-    item
-  end
-
-  factory :reservation do
-    pickup_time DateTime.now.beginning_of_day + 10.hour + 1.day
-    order { build(:order_with_items) }
+    image_path "https://image.freepik.com/free-icon/wagon_318-116334.png"
   end
 end

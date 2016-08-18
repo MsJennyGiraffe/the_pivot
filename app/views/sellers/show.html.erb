@@ -1,0 +1,6 @@
+
+<h1><%= @seller.username %> </h1>
+  <% @seller.items.each do |item| %>
+    <%= item.title %>
+    <%= link_to "Add to cart", cart_path(id: item.id), class: "btn btn-primary btn-lg active", method: :post %>
+  <% end %>
