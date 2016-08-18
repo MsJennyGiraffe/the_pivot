@@ -15,4 +15,9 @@ class Item < ActiveRecord::Base
   def self.featured_home_items(quantity)
     Item.order("RANDOM()").limit(quantity)
   end
+
+  def highest_bid
+    binding.pry
+  end
+
 end
