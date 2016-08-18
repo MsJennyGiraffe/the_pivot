@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   namespace :user, path: ":user_slug", as: :user do
-    resources :items, only: [:show]
+    resources :items, only: [:show, :new, :create, :index]
   end
   resources :items, only: [:index, :show]
   resources :users, only: [:new, :create, :edit, :show, :update]
