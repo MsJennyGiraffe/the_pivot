@@ -1,6 +1,8 @@
 class User::ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
+
+    @item.check_bid_status
   end
 
   def new
