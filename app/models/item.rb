@@ -1,12 +1,13 @@
 class Item < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
+  has_many :bids
 
   validates :title, presence: true
   validates :description, presence: true
   validates :image_path, presence: true
 
-  after_save :set_expiration
+  before_save :set_expiration
   after_update :check_bid_status
 
   enum bid_status: %w(Open Closed)
@@ -27,8 +28,8 @@ class Item < ActiveRecord::Base
   end
 
   def check_bid_status
+      self.bid_status = 1 if self.expiration_time < Time.now
 
-    self.bid_status = 1 if expiration_time < Time.now
   end
 
 end

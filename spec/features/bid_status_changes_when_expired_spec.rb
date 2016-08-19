@@ -15,7 +15,6 @@ RSpec.feature "an item bid status can change" do
 
       item.update_attribute(:expiration_time, (Time.now - 1.hour))
 
-
       expect(item.bid_status).to eq("Closed")
   end
 end

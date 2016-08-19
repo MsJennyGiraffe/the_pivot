@@ -1,8 +1,6 @@
 class User::ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
-
-    @item.check_bid_status
   end
 
   def new
@@ -30,7 +28,7 @@ class User::ItemsController < ApplicationController
     if @item.starting_bid < params[:starting_bid].to_f
       @item.update_attribute(:starting_bid, params[:starting_bid])
       flash[:success] = "Placed succesful bid!"
-      @item.save
+      Bid.create(price: params[:starting_bid], user: current_user, item: @item)
       redirect_to user_item_path(user_slug: @item.user.slug, id: @item.id)
     else
       flash[:warning] = "Must make a bid that is higher than current bid."
