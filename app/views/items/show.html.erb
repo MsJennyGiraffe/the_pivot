@@ -10,7 +10,7 @@
     </form>
 
     <label for="bid">Current Bid: <%= @item.starting_bid %></label>
-    <%= form_tag("/#{@item.user.slug}/items/#{@item.id}", method: "put") do %>
+    <%= form_tag("/items/#{@item.id}", method: "put") do %>
       <%= label_tag :starting_bid %>
       <%= text_field_tag :starting_bid %>
       <%= submit_tag("Place Bid") %>

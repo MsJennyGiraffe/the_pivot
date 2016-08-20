@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :user, path: ":user_slug", as: :user do
     resources :items, only: [:show, :new, :create, :index, :update, :edit]
   end
-  resources :items, only: [:index, :show]
+  resources :items, only: [:index, :show, :update]
   resources :users, only: [:new, :create, :edit, :show, :update]
   resources :categories, only: [:index, :show], param: :name
   resources :sellers, only: [:index, :show]

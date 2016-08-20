@@ -21,7 +21,6 @@ RSpec.feature "a user can submit a bid" do
       expect(current_path).to eq(user_item_path(user_slug: user_2.slug, id: user_2.items.last.id))
 
       expect(page).to have_content("#{item.starting_bid + 1}")
-      expect(user_1.bids.last.price).to eq(25.0)
-      expect(item.bids.last.price).to eq(25.0)
+      expect(user_1.bids.last.price).to eq(item.starting_bid + 1)
   end
 end
