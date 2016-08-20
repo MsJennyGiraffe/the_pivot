@@ -39,6 +39,14 @@ class User::ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.update_attribute(:active, false)
+    flash[:notice] = "Item has been removed"
+    redirect_to user_path(current_user)
+  end
+
+
   private
     def user_item_params
         params.require(:item).permit(:title, :description, :image_path, :starting_bid, :expiration_time)
