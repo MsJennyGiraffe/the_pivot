@@ -12,13 +12,12 @@ RSpec.feature "a user can submit a bid" do
       fill_in "Password", with: "password"
       click_button "Login"
 
-      visit user_item_path(user_slug: user_2.slug, id: user_2.items.last.id)
-      expect(current_path).to eq(user_item_path(user_slug: user_2.slug, id: user_2.items.last.id))
+      visit item_path(item)
 
       fill_in "bid", with: "#{item.starting_bid + 1}"
       click_on "Place Bid"
 
-      expect(current_path).to eq(user_item_path(user_slug: user_2.slug, id: user_2.items.last.id))
+      expect(current_path).to eq(item_path(item))
 
       expect(page).to have_content("#{item.starting_bid + 1}")
       expect(user_1.bids.last.price).to eq(item.starting_bid + 1)
