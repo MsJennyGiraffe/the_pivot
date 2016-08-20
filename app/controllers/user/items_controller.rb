@@ -29,19 +29,18 @@ class User::ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    if @item.starting_bid < params[:starting_bid].to_f
-      @item.update_attribute(:starting_bid, params[:starting_bid])
-      flash[:success] = "Placed succesful bid!"
-      Bid.create(price: params[:starting_bid], user: current_user, item: @item)
+    @item.update_attributes(user_item_params)
+    if @item.save
+      flash[:success] = "Item Updated!"
       redirect_to user_item_path(user_slug: @item.user.slug, id: @item.id)
     else
-      flash[:warning] = "Must make a bid that is higher than current bid."
-      render :show
+      flash[:warning] = "Error. Try Again."
+      render :edit
     end
   end
 
-
-  def user_item_params
-      params.require(:item).permit(:title, :description, :image_path, :starting_bid, :expiration_time)
-  end
+  private
+    def user_item_params
+        params.require(:item).permit(:title, :description, :image_path, :starting_bid, :expiration_time)
+    end
 end

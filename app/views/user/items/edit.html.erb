@@ -1,7 +1,7 @@
 <h1> Edit Item: <%= @item.title %> </h1>
 
 <div class="well well-sm">
-  <%= form_for(@item, url: user_items_path(user_slug: current_user.slug, id: @item)) do |f| %>
+  <%= form_for(@item, url: user_item_path(user_slug: current_user.slug, id: @item)) do |f| %>
   <div class="container">
     <%= f.label :title, "Title", class: "text-center" %>
     <%= f.text_field :title, placeholder: "Enter Title", class: "form-control" %>
@@ -18,7 +18,7 @@
     <%= f.label :expiration_time, "Expiration Time", class: "text-center" %>
     <%= f.text_field :expiration_time, placeholder: "Enter Expiration Time", class: "form-control" %>
     <br>
-    <%= f.submit "Create Item", class: "btn btn-default btn-block" %>
+    <%= f.submit "Update Item", class: "btn btn-default btn-block" %>
   </div>
   <br>
   <% end %>

@@ -19,7 +19,7 @@
     <% current_user.items.each do |item| %>
     <div class="row">
       <div class="container col-md-8 col-md-offset-2">
-        <h3 class="text-center"> <%=link_to item.title, item_path(item) %></h3>
+        <h3 class="text-center"> <%=link_to item.title, user_item_path(user_slug: item.user.slug, id: item.id) %></h3>
         <div class="text-center"><%= item.description %></div>
         <form>
           <div class="form-group">
