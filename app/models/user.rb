@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :orders
   has_many :items
+  has_many :bids
 
   validates :username, presence: true
   validates :password_digest, presence: true

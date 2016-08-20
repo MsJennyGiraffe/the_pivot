@@ -18,7 +18,7 @@ RSpec.feature "a user can purchase items from multiple businesses" do
       click_on "View all sellers"
       click_on "business_1"
       expect(page).to have_content("business_1")
-      click_on "Add to cart"
+      click_on "Snap it Up"
 
       visit cart_path
 
@@ -30,7 +30,7 @@ RSpec.feature "a user can purchase items from multiple businesses" do
       click_on "View all sellers"
       click_on "business_2"
       expect(page).to have_content("business_2")
-      click_on "Add to cart"
+      click_on "Snap it Up"
 
       visit cart_path
 

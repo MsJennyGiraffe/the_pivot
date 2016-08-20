@@ -13,7 +13,6 @@ class CartController < ApplicationController
       flash[:warning] = "Login to Buyout"
       redirect_to user_item_path(user_slug: @item.user.slug, id: @item.id)
     else
-      redirect_to cart_path
     end
   end
 
