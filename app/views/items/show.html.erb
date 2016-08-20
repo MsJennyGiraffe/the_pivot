@@ -1,1 +1,24 @@
+<div class="row">
+  <div class="container col-md-8 col-md-offset-2">
+    <h3 class="text-center"> <%=link_to @item.title, item_path(@item) %></h3>
+    <div class="text-center"><%= @item.description %></div>
 
+    <form>
+      <div class="form-group">
+        <label for="expiration_time">Expiration Time <%= @item.expiration_time %></label>
+      </div>
+    </form>
+
+    <label for="bid">Current Bid: <%= @item.starting_bid %></label>
+    <%= form_tag("/items/#{@item.id}", method: "put") do %>
+      <%= label_tag :starting_bid %>
+      <%= text_field_tag :starting_bid %>
+      <%= submit_tag("Place Bid") %>
+      <% end %>
+
+      <% if @item.buyout_price %>
+      <div class="text-center"> Buyout Price: <%= @item.buyout_price %> </div>
+      <div class="text-center", id="buyout"><%= link_to "Snap it Up", cart_path(id: @item.id, type: "buyout"), class: "btn btn-primary btn-lg active", method: :post %></div>
+      <% end %>
+    </div>
+  </div>

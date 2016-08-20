@@ -1,4 +1,4 @@
 
 <% @sellers.each do |seller| %>
-<%= link_to "#{seller.username}", seller_path(seller) %>
+<%= link_to "#{seller.username}", seller_path(id: seller.id, user_slug: seller.slug) %>
 <% end %>

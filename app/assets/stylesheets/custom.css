@@ -2,9 +2,6 @@
 
   font-family: 'VT323', monospace;
 }
-body {
-  background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/iPad-warm-wood-wallpaper.jpg");
-}
 
 img {
   max-width: 250px;
@@ -42,5 +39,5 @@ img.table-resize{
 }
 
 .img-responsive {
-    margin: 0 auto;
+  margin: 0 auto;
 }
