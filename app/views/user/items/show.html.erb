@@ -21,5 +21,7 @@
       <div class="text-center", id="buyout"><%= link_to "Snap it Up", cart_path(id: @item.id, type: "buyout"), class: "btn btn-primary btn-lg active", method: :post %></div>
       <% end %>
 
+      <%= link_to "Edit Item", edit_user_item_path(user_slug: @item.user.slug, id: @item) %>
+
     </div>
   </div>

@@ -7,6 +7,10 @@ class User::ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
   def create
     @item = Item.new(user_item_params)
     if @item.save
@@ -38,6 +42,6 @@ class User::ItemsController < ApplicationController
 
 
   def user_item_params
-      params.require(:item).permit(:starting_bid,)
+      params.require(:item).permit(:title, :description, :image_path, :starting_bid, :expiration_time)
   end
 end

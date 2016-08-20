@@ -1,10 +1,7 @@
-<div class="panel panel-primary">
-  <h4 class="text-center"> Create New Item</h4>
-</div>
-
+<h1> Edit Item: <%= @item.title %> </h1>
 
 <div class="well well-sm">
-  <%= form_for(@item, url: user_items_path(user_slug: current_user.slug)) do |f| %>
+  <%= form_for(@item, url: user_items_path(user_slug: current_user.slug, id: @item)) do |f| %>
   <div class="container">
     <%= f.label :title, "Title", class: "text-center" %>
     <%= f.text_field :title, placeholder: "Enter Title", class: "form-control" %>
