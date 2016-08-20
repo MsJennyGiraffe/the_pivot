@@ -22,6 +22,7 @@
       <% end %>
 
       <%= link_to "Edit Item", edit_user_item_path(user_slug: @item.user.slug, id: @item) %>
+      <%= link_to "Delete Item", user_item_path(user_slug: @item.user.slug, id: @item), method: :delete%>
 
     </div>
   </div>

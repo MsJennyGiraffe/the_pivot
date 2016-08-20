@@ -31,4 +31,10 @@ class Item < ActiveRecord::Base
       self.bid_status = 1 if self.expiration_time < Time.now
   end
 
+  def active?
+    active
+  end
+
+
+
 end
