@@ -1,3 +1,6 @@
+<% if @user.role == "default" %>
+  <%= link_to "Apply to Become Seller", request_path, method: :put %>
+<% end %>
 <div id="tabs">
   <ul>
     <li><a href="#tabs-1">Profile Information</a></li>
@@ -28,15 +31,15 @@
             <input type="text" class="form-control" id="bid">
           </div>
         </form>
-          <div class="text-center", id="bid"><%= link_to "Bid", cart_path(id: item, type: "bid"), class: "btn btn-primary btn-lg active", method: :post %></div>
-          <% if item.buyout_price %>
-          <div class="text-center"> Buyout Price: <%= item.buyout_price %> </div>
-          <div class="text-center", id="buyout"><%= link_to "Snap it Up", cart_path(id: item.id, type: "buyout"), class: "btn btn-primary btn-lg active", method: :post %></div>
-          <% end %>
-        </div>
-      </div>
+        <div class="text-center", id="bid"><%= link_to "Bid", cart_path(id: item, type: "bid"), class: "btn btn-primary btn-lg active", method: :post %></div>
+        <% if item.buyout_price %>
+        <div class="text-center"> Buyout Price: <%= item.buyout_price %> </div>
+        <div class="text-center", id="buyout"><%= link_to "Snap it Up", cart_path(id: item.id, type: "buyout"), class: "btn btn-primary btn-lg active", method: :post %></div>
         <% end %>
-      <% end %>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
   </div>
   <div id="tabs-3">
     Previous Orders:
@@ -46,22 +49,22 @@
         <h1 class="text-center">Order Number <%= order.id %></h1>
         <div>
           <div class=" table-responsive">
-          <table class="table table-bordered table-striped">
-            <thead>
-              <th>Item</th>
-              <th>Quantity</th>
-              <th>Price/Unit</th>
-              <th>Total Price</th>
-              <% order.order_items.each do |order_item| %>
-              <tr>
-                <td> <%= order_item.item.title %> </td>
-              </tr>
-              <% end %>
-            </thead>
-          </table>
+            <table class="table table-bordered table-striped">
+              <thead>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price/Unit</th>
+                <th>Total Price</th>
+                <% order.order_items.each do |order_item| %>
+                <tr>
+                  <td> <%= order_item.item.title %> </td>
+                </tr>
+                <% end %>
+              </thead>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
     </div>
     <% end %>
   </div>

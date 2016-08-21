@@ -43,8 +43,8 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
         <span class="navbar-text", id= "welcome">Hello <%= link_to current_user.username.upcase, user_path(current_user) %> </span>
-        <% if current_user.admin? %>
-        <li><%= link_to "Admin Dashboard", admin_orders_path  %></li>
+        <% if current_user.platform_admin? %>
+        <li><%= link_to "Admin Dashboard", admin_platform_admin_index_path  %></li>
         <% end %>
         <li><%= link_to "Logout", logout_path, method: :delete %></li>
         <% else %>

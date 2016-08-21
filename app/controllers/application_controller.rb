@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def user_dashboard_path
     if current_admin?
-      admin_dashboard_path
+      admin_platform_admin_index_path
     else
       dashboard_path
     end
@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_admin?
-    current_user && current_user.admin?
+    current_user && current_user.platform_admin?
   end
 end

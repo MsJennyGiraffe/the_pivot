@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :user, path: ":user_slug", as: :user do
     resources :items
   end
+  resources :requests, only: [:update]
   resources :items, only: [:index, :show, :update]
   resources :users, only: [:new, :create, :edit, :show, :update]
   resources :categories, only: [:index, :show], param: :name
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
     get '/dashboard', to: 'orders#index'
     resources :orders, only: [:index, :show, :update]
     resources :items, only: [:new, :create]
+    resources :platform_admin, only: [:index, :update]
   end
 
   get '/login', to: 'sessions#new'

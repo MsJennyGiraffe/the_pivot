@@ -23,6 +23,9 @@ FactoryGirl.define do
     username { generate(:username) }
     password "password"
     email { generate(:email) }
+    role 0
+    approved false
+    requested false
   end
 
   factory :category do |n|
