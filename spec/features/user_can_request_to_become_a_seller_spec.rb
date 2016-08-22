@@ -29,6 +29,6 @@ RSpec.feature "User can request to be a seller" do
     click_on "Approve"
 
     expect(page).to have_content("Seller approved!")
-    expect(page).to_not have_content(user.username)
+  
   end
 end
