@@ -20,7 +20,11 @@ class User < ActiveRecord::Base
   end
 
   def update_role
-    self.update_attributes(approved: true, role: 1, requested: false)
+    if self.role == "platform_admin"
+      self.update_attributes(approved: true, requested: false)
+    else
+      self.update_attributes(approved: true, role: 1, requested: false)
+    end
   end
 
 

@@ -1,7 +1,26 @@
+  <h1>Requested Businesses</h1>
 <% @users.each do |user| %>
 <div>
   <%= link_to user.username, user_path(user) %>
   <%= link_to "Approve", admin_platform_admin_path(id: user, approved: "true"), method: :put %>
   <%= link_to "Deny", admin_platform_admin_path(id: user), method: :put %>
+</div>
+  <% end %>
+
+  <h1>Active Businesses</h1>
+  <% @approved.each do |user| %>
+  <div>
+    <%= link_to user.username, user_path(user) %>
+    <%= link_to "Take Offline", admin_platform_admin_path(id: user), method: :put %>
+  </div>
+  <% end %>
+
+  <h1>Inactive Businesses</h1>
+<% @not_approved.each do |user| %>
+<div>
+  <% if !user.requested && !user.approved %>
+  <%= link_to user.username, user_path(user) %>
+  <%= link_to "Take Online", admin_platform_admin_path(id: user, approved: "true"), method: :put %>
+  <% end %>
 </div>
   <% end %>

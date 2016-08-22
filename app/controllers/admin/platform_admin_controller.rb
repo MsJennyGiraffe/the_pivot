@@ -2,6 +2,8 @@ class Admin::PlatformAdminController < Admin::BaseController
   def index
     if current_user.platform_admin?
       @users = User.where(requested: true)
+      @not_approved =  User.where(requested: false).reverse
+      @approved = User.where(approved: true)
     else
       render file: "/public/404"
     end
@@ -14,7 +16,7 @@ class Admin::PlatformAdminController < Admin::BaseController
       flash[:success] = "Seller approved!"
       redirect_to admin_platform_admin_index_path
     else
-      user.update_attributes(requested: false)
+      user.update_attributes(requested: false, approved: false)
       flash[:warning] = "Seller denied."
       redirect_to admin_platform_admin_index_path
     end
