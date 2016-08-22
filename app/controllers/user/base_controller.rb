@@ -6,6 +6,6 @@ class User::BaseController < ApplicationController
   end
 
   def current_seller?
-    current_user && current_user.role == 1
+    current_user && current_user.role == "seller"
   end
 end
