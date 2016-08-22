@@ -12,7 +12,6 @@ RSpec.feature "user can only manage items if user is approved" do
 
     visit "/#{user.slug}/items/new"
 
-    # save_and_open_page
-    expect(page).to have_content("Become Approved To Add An Item")
+    expect(page).to have_content("404")
   end
 end

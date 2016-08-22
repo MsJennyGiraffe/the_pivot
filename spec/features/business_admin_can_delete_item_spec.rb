@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Business admin can delete and item" do
   scenario "delete an item" do
-    user = create(:user)
+    user = create(:user, role: 2)
     item = create(:item, user_id: user.id)
     #     As a business admin,
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)

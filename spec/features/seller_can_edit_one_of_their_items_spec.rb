@@ -8,8 +8,7 @@ RSpec.feature "User can edit their own items" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit "/#{user.slug}/items/#{item.id}"
-    click_link "#{item.title}"
-    save_and_open_page
+    # save_and_open_page
     click_link "Edit Item"
 
     expect(current_path).to eq ("/#{user.slug}/items/#{item.id}/edit")

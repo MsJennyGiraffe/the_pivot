@@ -1,4 +1,4 @@
-class User::ItemsController < ApplicationController
+class User::ItemsController < User::BaseController
   def show
     @item = Item.find(params[:id])
   end
