@@ -13,11 +13,16 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates :email, presence: true
 
-  enum role: [:default, :admin]
+  enum role: [:default, :seller, :platform_admin]
 
   def set_default_role
     self.update(role: 0 ) unless self.role
   end
+
+  def update_role
+    self.update_attributes(approved: true, role: 1, requested: false)
+  end
+
 
   private
 
