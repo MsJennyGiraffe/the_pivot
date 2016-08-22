@@ -13,10 +13,11 @@ class User::ItemsController < User::BaseController
 
   def create
     @item = Item.new(user_item_params)
+    @user = User.find_by(slug: params[:user_slug])
     if @item.save
-      current_user.items << @item
+      @user.items << @item
       flash[:notice] = "Item Successfully Added To Your Store"
-      redirect_to user_item_path(user_slug: current_user.slug, id: @item)
+      redirect_to user_item_path(user_slug: @user.slug, id: @item)
     else
       flash[:error]= "Please fill in all fields"
       render :new
