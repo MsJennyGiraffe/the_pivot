@@ -7,7 +7,7 @@ RSpec.feature "User can edit their own items" do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit "/users/#{item.id}"
+    visit "/users/#{user.id}"
     click_link "#{item.title}"
     click_link "Edit Item"
 
