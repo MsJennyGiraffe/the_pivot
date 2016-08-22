@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    if @user == current_user || current_admin?
+      render :show
+    else
+      render file: "/errors/not_found"
+    end
   end
 
   def new

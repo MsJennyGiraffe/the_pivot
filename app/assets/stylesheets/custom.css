@@ -41,3 +41,8 @@ img.table-resize{
 .img-responsive {
   margin: 0 auto;
 }
+
+.bgimage {
+  min-height: 100%;
+  width: auto;
+}

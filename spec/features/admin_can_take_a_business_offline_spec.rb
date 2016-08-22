@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Admin can take a business offline" do
   scenario "take a business offline" do
-    user = create(:user, approved: true)
+    user = create(:user, approved: true, role: 1)
     admin = create(:user, role: 2)
 
     visit login_path
