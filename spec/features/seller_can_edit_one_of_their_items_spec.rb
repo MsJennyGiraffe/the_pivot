@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "User can edit their own items" do
   scenario "A user can edit their item attribues" do
-    user = create(:user)
+    user = create(:user, role: 1)
     item = create(:item, user_id: user.id)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "a user can add items to their store" do
   scenario "a registered user adds an item to sell" do
 
-    user_1 = User.create!(username: "business_1", password: "password", email: "test@gmail.com" )
+    user_1 = User.create!(username: "business_1", password: "password", email: "test@gmail.com", role: 1 )
     visit login_path
     fill_in "Username", with: "business_1"
     fill_in "Password", with: "password"
