@@ -30,6 +30,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserNotifier.send_signup_email(@user).deliver_now
       session[:user_id] = @user.id
       flash[:notice] = "Logged in as #{@user.username}"
       if @cart.contents.empty?
