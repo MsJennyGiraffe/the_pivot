@@ -5,7 +5,10 @@ class OrdersController < ApplicationController
   end
 
   def create
-    if current_user
+    if @cart.contents == {}
+      flash.now[:alert] = "Must have an item in your cart to checkout."
+      redirect_to cart_path
+    elsif current_user
       @order = Order.from_cart(@cart, user: current_user)
       @order.update_attribute(:status, "completed")
       if @order.save
