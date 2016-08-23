@@ -7,9 +7,9 @@ RSpec.feature "Checkout" do
     visit "/items"
     click_link "#{item.title}"
     fill_in :bid, with: ( item.starting_bid + 1 )
-    click_link "Bid"
+    click_button "Bid"
 
-    expect(current_path).to eq("/#{item.user.slug}/items/#{item.id}")
+    expect(current_path).to eq("/items/#{item.id}")
     expect(page).to have_content ("Login to Bid")
   end
 

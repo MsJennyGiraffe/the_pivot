@@ -5,24 +5,21 @@ class OrdersController < ApplicationController
   end
 
   def create
-    if current_user
-      @order = Order.from_cart(@cart, user: current_user)
-      @order.update_attribute(:status, "completed")
-
-      if @order.save
-        @cart.cart_items.each do |cart_item|
-          cart_item_id = cart_item.id
-          item = Item.find(cart_item_id)
-          item.save
-        end
-        session.delete :cart
-        flash[:success] = "Order was successfully placed"
-        redirect_to new_order_reservation_path(@order)
-      end
+    @order = Order.create_order(current_user,@cart,session,flash) if current_user
+    if !@order == "Cart Empty"
+      redirect_to order_path(@order)
+    else
+      flash[:warning] = "Cart Empty"
+      redirect_to cart_path
     end
   end
 
-  def show
-    @order = Order.find(params[:id])
+    def show
+      @order = Order.find(params[:id])
+      if @order.user == current_user || current_admin?
+        render :show
+      else
+        render file: "/errors/not_found"
+      end
+    end
   end
-end

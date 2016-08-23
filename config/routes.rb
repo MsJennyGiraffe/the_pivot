@@ -2,20 +2,20 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   namespace :user, path: ":user_slug", as: :user do
-    resources :items, only: [:show]
+    resources :items
   end
-  resources :items, only: [:index, :show]
+  resources :requests, only: [:update]
+  resources :items, only: [:index, :show, :update]
   resources :users, only: [:new, :create, :edit, :show, :update]
   resources :categories, only: [:index, :show], param: :name
-  resources :sellers, only: [:index, :show]
-  resources :orders, only: [:index, :show, :create] do
-    resources :reservations, only: [:new, :create]
-  end
+  resources :sellers, only: [:index]
+  resources :orders, only: [:index, :show, :create]
 
   namespace :admin do
     get '/dashboard', to: 'orders#index'
     resources :orders, only: [:index, :show, :update]
     resources :items, only: [:new, :create]
+    resources :platform_admin, only: [:index, :update]
   end
 
   get '/login', to: 'sessions#new'
@@ -28,11 +28,7 @@ Rails.application.routes.draw do
   delete "/cart", to: "cart#destroy"
 
   get '/search', to: 'search#index'
-  get '/:user_slug', to: 'sellers#show'
-end
+  get '/:user_slug', to: 'sellers#show', as: :seller
 
-  # get "/stores/:slug", to: "stores#show", as: "store"
-  #
-  # namespace :store, path: ":store_slug" do
-  #   resources :items, only: [:index, :show]
-  # end
+  get "*any", via: :all, to: "errors#not_found"
+end

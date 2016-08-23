@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817194336) do
+ActiveRecord::Schema.define(version: 20160820230023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20160817194336) do
     t.float    "starting_bid",    default: 0.01
     t.datetime "expiration_time"
     t.integer  "user_id"
+    t.integer  "bid_status",      default: 0
+    t.boolean  "active",          default: true
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
@@ -67,13 +69,15 @@ ActiveRecord::Schema.define(version: 20160817194336) do
     t.string   "password_digest"
     t.string   "email"
     t.integer  "role"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.text     "first_name"
     t.text     "last_name"
     t.text     "address"
     t.text     "description"
     t.string   "slug"
+    t.boolean  "approved",        default: false
+    t.boolean  "requested",       default: false
   end
 
   add_foreign_key "bids", "items"

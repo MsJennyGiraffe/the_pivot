@@ -23,6 +23,9 @@ FactoryGirl.define do
     username { generate(:username) }
     password "password"
     email { generate(:email) }
+    role 0
+    approved false
+    requested false
   end
 
   factory :category do |n|
@@ -37,5 +40,6 @@ FactoryGirl.define do
     starting_bid { rand(1..99) }
     user
     image_path "https://image.freepik.com/free-icon/wagon_318-116334.png"
+    bid_status { 0 }
   end
 end

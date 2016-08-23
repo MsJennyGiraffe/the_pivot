@@ -12,6 +12,10 @@ No current items
     <table class="table table-bordered table-striped">
       <thead>
         <th>Item</th>
+        <% if @cart_items %>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+
         <% @cart_items.each do |cart_item| %>
         <tr>
           <td>
@@ -29,15 +33,26 @@ No current items
             </ul>
           </div>
         </td>
+        <td>
+          <%= cart_item.subtotal %>
+          <% end %>
+          <td>
+            Total
+            <% total = 0 %>
+            <% @cart_items.each { |item| total += item.subtotal } %>
+              <%= total %>
+          </td>
+        </td>
       </div>
         </td>
         </tr>
-      <% end %>
+        <% end %>
     </thead>
   </table>
 </div>
 </div>
 </div>
+
 
 <div class="col-xs-12">
   <div class="panel panel-primary">

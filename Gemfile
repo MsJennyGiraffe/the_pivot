@@ -11,6 +11,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
+gem 'jquery-ui-rails'
+gem 'simplecov'
 
 group :development, :test do
   gem 'byebug'

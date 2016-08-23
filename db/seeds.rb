@@ -4,6 +4,23 @@ class Seed
     add_categories
     add_items
     add_customers
+    add_pending_users
+    add_platform_admin
+  end
+
+  def add_platform_admin
+    jorge = User.create!({
+      username:    "jorge@turing.io",
+      password:    "password",
+      email:       "jorge@turing.io",
+      first_name:  "Jorge",
+      last_name:   "Tellez",
+      address:     Faker::Address.street_address,
+      description: Faker::Hipster.paragraph(2),
+      role:        2
+    })
+    add_orders(jorge)
+    puts "Jorge Created"
   end
 
   def add_sellers
@@ -14,7 +31,9 @@ class Seed
       first_name:  "Nate",
       last_name:   "Allen",
       address:     Faker::Address.street_address,
-      description: Faker::Hipster.paragraph(2)
+      description: Faker::Hipster.paragraph(2),
+      approved:    true,
+      role:        1
     })
     add_orders(nate)
     puts "Nate Created"
@@ -27,7 +46,9 @@ class Seed
         first_name:  Faker::Name.first_name,
         last_name:   Faker::Name.last_name,
         address:     Faker::Address.street_address,
-        description: Faker::Hipster.paragraph(2)
+        description: Faker::Hipster.paragraph(2),
+        approved:    true,
+        role:        1
       })
       add_orders(user)
       puts "Seller Created"
@@ -68,7 +89,7 @@ class Seed
     add_orders(josh)
     puts "Josh Created"
 
-    99.times do
+    89.times do
       user = User.create!({
         username:    Faker::Internet.user_name,
         password:    "password",
@@ -80,6 +101,25 @@ class Seed
       })
       add_orders(user)
       puts "Customer Created"
+    end
+  end
+
+  def add_pending_users
+    10.times do
+      user = User.create!({
+        username:    Faker::Internet.user_name,
+        password:    "password",
+        email:       Faker::Internet.email,
+        first_name:  Faker::Name.first_name,
+        last_name:   Faker::Name.last_name,
+        address:     Faker::Address.street_address,
+        description: Faker::Hipster.paragraph(2),
+        approved:    false,
+        requested:   true,
+        role:        1
+      })
+      add_orders(user)
+      puts "Pending User Created"
     end
   end
 
