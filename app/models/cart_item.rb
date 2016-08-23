@@ -7,6 +7,9 @@ class CartItem < SimpleDelegator
     super(@item)
   end
 
+  def subtotal
+    @item.buyout_price * @quantity
+  end
 
   def to_order_item
     OrderItem.new(item: item, quantity: quantity)
