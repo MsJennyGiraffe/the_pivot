@@ -10,6 +10,7 @@ class SellersController < ApplicationController
       render :show
     else
       render file: "/errors/not_found" unless current_admin?
+    end
   end
 
   private
