@@ -6,7 +6,8 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.create_order(current_user,@cart,session,flash) if current_user
-    if !@order == "Cart Empty"
+    if @order != "Cart Empty"
+      EmailConfirmationMailer.confirmation(current_user, @order).deliver_now
       redirect_to order_path(@order)
     else
       flash[:warning] = "Cart Empty"
