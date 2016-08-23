@@ -12,4 +12,10 @@ class UserNotifier < ActionMailer::Base
     @url  = "http://nerdsnap.herokuapp.com/login"
     mail(to: @user.email, subject: "Welcome to nerdSnap!")
   end
+
+  def approved_seller(user)
+    @user = user
+    @url  = "http://nerdsnap.herokuapp.com/login"
+    mail(to: @user.email, subject: "Welcome to nerdSnap!")
+  end
 end
