@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :items
   has_many :bids
+  has_many :chat_rooms, dependent: :destroy
 
   validates :username, presence: true
   validates :password_digest, presence: true
