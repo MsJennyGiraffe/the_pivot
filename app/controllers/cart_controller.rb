@@ -5,20 +5,11 @@ class CartController < ApplicationController
     @cart.add_item(@item.id)
     session[:cart] = @cart.contents
     flash[:success] = "#{@item.title} has been added to cart."
-    if !current_user && params[:type] == "bid"
-      flash[:warning] = "Login to Bid"
-      redirect_to user_item_path(user_slug: @item.user.slug, id: @item.id)
-    elsif !current_user
-      flash[:warning] = "Login to Buyout"
-      redirect_to user_item_path(user_slug: @item.user.slug, id: @item.id)
-    else
-      redirect_to cart_path
-    end
+    cart_path_filter
   end
 
-
   def show
-    if @cart.nil?
+    if !@cart
       flash[:no_items] = "Your cart is currently empty"
     else
       @cart_items = @cart.cart_items
@@ -44,5 +35,17 @@ class CartController < ApplicationController
 
   def change_quantity
     session[:cart][item_id] = params[:id][:quantity]
+  end
+
+  def cart_path_filter
+    if !current_user && params[:type] == "bid"
+      flash[:warning] = "Login to Bid"
+      redirect_to user_item_path(user_slug: @item.user.slug, id: @item.id)
+    elsif !current_user
+      flash[:warning] = "Login to Buyout"
+      redirect_to user_item_path(user_slug: @item.user.slug, id: @item.id)
+    else
+      redirect_to cart_path
+    end
   end
 end

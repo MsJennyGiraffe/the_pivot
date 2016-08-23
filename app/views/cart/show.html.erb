@@ -12,6 +12,7 @@ No current items
     <table class="table table-bordered table-striped">
       <thead>
         <th>Item</th>
+        <% if @cart_items %>
         <% @cart_items.each do |cart_item| %>
         <tr>
           <td>
@@ -32,6 +33,7 @@ No current items
       </div>
         </td>
         </tr>
+        <% end %>
       <% end %>
     </thead>
   </table>
