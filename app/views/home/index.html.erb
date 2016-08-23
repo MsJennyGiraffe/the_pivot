@@ -9,7 +9,7 @@
       <% if item.buyout_price %>
       <h4>Snap it Up: <%= item.buyout_price %></h4>
       <% end %>
-      <h4><%=h truncate(item.description, :length => 100) %></h4>
+      <h4><%=h truncate(item.description, :length => 70) %></h4>
       <div class="text-center"><%= link_to "View Item", item_path(item), class: "btn btn-primary" %></div>
     </div>
     <% end %>
@@ -23,12 +23,4 @@
     <p class="text-center"><%= Faker::Hipster.paragraph %></p>
     <div class="text-center"> <%= link_to "Apply Now", login_path, class: "btn btn-primary" %></div>
   </div>
-</div>
-
-
-
-
-<br><br>
-<div class="col-md-12">
-  <%= link_to "View all sellers", sellers_path, class: "btn btn-default" %>
 </div>

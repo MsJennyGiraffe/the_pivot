@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.feature "a visitor can visit different businesses" do
   scenario "a visitor visits a business page" do
-      User.create(username: "business_1", password: "password", email: "test@gmail.com" )
-      User.create(username: "business_2", password: "password", email: "test2@gmail.com" )
+      User.create(username: "business_1", password: "password", email: "test@gmail.com", approved: true, role: 1 )
+      User.create(username: "business_2", password: "password", email: "test2@gmail.com", approved: true, role: 1 )
 
 
         visit root_path
-        click_on "View all sellers"
+        click_on "Sellers"
 
         expect(page).to have_content("business_1")
 
@@ -17,7 +17,7 @@ RSpec.feature "a visitor can visit different businesses" do
 
         visit root_path
 
-        click_on "View all sellers"
+        click_on "Sellers"
 
         expect(page).to have_content("business_2")
 

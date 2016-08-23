@@ -1,4 +1,7 @@
 <% @sellers.each do |seller| %>
-<%= link_to "#{seller.username}", seller_path(user_slug: seller.slug) %>
-</br>
+<div class="col-md-3">
+<h3 class="text-center"><%= link_to "#{seller.username}", seller_path(user_slug: seller.slug) %></h3>
+<%=h truncate(seller.description, :length => 100) %>
+<%= link_to "View Shop", seller_path(seller.slug), class: "btn btn-default btn-block" %>
+</div>
 <% end %>
