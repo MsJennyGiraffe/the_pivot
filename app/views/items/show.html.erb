@@ -13,7 +13,7 @@
     <%= form_tag("/items/#{@item.id}", method: "put") do %>
       <%= label_tag :starting_bid %>
       <%= text_field_tag :starting_bid %>
-      <%= submit_tag("Place Bid") %>
+      <%= submit_tag("Place Bid", class: "btn btn-primary btn-lg active") %>
       <% end %>
 
       <% if @item.buyout_price %>

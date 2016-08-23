@@ -1,7 +1,7 @@
 class SellersController < ApplicationController
 
   def index
-    @sellers = User.all
+    @sellers = User.where(approved: true)
   end
 
   def show
