@@ -4,7 +4,9 @@
 <div id="tabs">
   <ul>
     <li><a href="#tabs-1">Profile Information</a></li>
+    <% if @user.approved %>
     <li><a href="#tabs-2">Items for Sale</a></li>
+    <% end %>
     <li><a href="#tabs-3">Previous Orders</a></li>
   </ul>
   <div id="tabs-1">
@@ -17,6 +19,7 @@
       <p class="text-center">Email: <%= @user.email %> </p>
     </div>
   </div>
+  <% if @user.approved %>
   <div id="tabs-2">
     <%= @user.username %>'s items for sale:
     <% @user.items.each do |item| %>
@@ -41,32 +44,29 @@
     <% end %>
     <% end %>
   </div>
+  <% end %>
   <div id="tabs-3">
-    Previous Orders:
-    <% @user.orders.each do |order| %>
-    <div class="well">
-      <div class="container">
-        <h1 class="text-center">Order Number <%= order.id %></h1>
-        <div>
-          <div class=" table-responsive">
-            <table class="table table-bordered table-striped">
-              <thead>
-                <th>Item</th>
-                <th>Quantity</th>
-                <th>Price/Unit</th>
-                <th>Total Price</th>
-                <% order.order_items.each do |order_item| %>
-                <tr>
-                  <td> <%= order_item.item.title %> </td>
-                </tr>
-                <% end %>
-              </thead>
-            </table>
-          </div>
+    <div class="panel panel-primary">
+      <h1 class="text-center">Your Orders</h1>
+      <div>
+          <div class="panel panel-primary">
+          <table class="table table-bordered table-striped table-responsive col-md">
+            <th>Order Number</th>
+            <th></th>
+            <% @user.orders.each do |order| %>
+            <tr>
+              <td><%= order.id %> </td>
+              <td><%= link_to "View Order", order_path(order) %></td>
+            </tr>
+            <% end %>
+          </table>
         </div>
       </div>
     </div>
-    <% end %>
   </div>
 </div>
-<%= button_to "Add Item", new_user_item_path(@user.slug),  method: :get %>
+</br>
+<% if @user.approved %>
+<%= button_to "Add Item", new_user_item_path(@user.slug),  method: :get, class: "btn btn-primary"%>
+<%= button_to "My Seller Page", seller_path(@user.slug), method: :get, class: "btn btn-primary" %>
+<% end %>

@@ -1,5 +1,5 @@
 class UserNotifier < ActionMailer::Base
-  default from: 'do-not-reply@nerdsnap.herokuapp.com'
+  default from: 'nerdsnap@gmail.com'
 
   def confirmation(user, order)
     @user = user
