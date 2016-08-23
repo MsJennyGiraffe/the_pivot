@@ -59,7 +59,7 @@
           <a href="/categories" class="dropdown-toggle navbar-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <% Category.all.each do |category| %>
-            <li><a href="<%= category_path(category.title) %>"></a> <%= category.title %></li>
+            <li><%= link_to category.title, category_path(category.title) %></li>
             <% end %>
           </ul>
         </li>
