@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.feature "add items from multiple sellers into cart" do
   scenario "cart from multi sellers" do
-      user_1 = User.create!(username: "business_1", password: "password", email: "test@gmail.com" )
-      user_2 = User.create!(username: "business_2", password: "password", email: "mack@gmail.com" )
+      user_1 = User.create!(username: "business_1", password: "password", email: "test@gmail.com", approved: true )
+      user_2 = User.create!(username: "business_2", password: "password", email: "mack@gmail.com", approved: true )
       category = create(:category)
       category2 = create(:category)
       create(:item, user: user_1, category: category)
