@@ -1,4 +1,8 @@
 Rails.application.configure do
+
+  config.action_cable.allowed_request_origins = ['https://nerdsnap.herokuapp.com',
+                                               'http://nerdsnap.herokuapp.com']
+  config.action_cable.url = "wss://sitepoint-actioncable.herokuapp.com/cable"
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
