@@ -15,7 +15,7 @@
       <form class="navbar-form pull-left">
         <div class="form-group">
           <%= form_tag(search_path, :method => "GET") do %>
-          <div class="col-md-2 col-xs-8">
+          <div class="col-md-3 col-xs-8">
             <%= text_field_tag :search, params[:search], placeholder: "Store Quick Search", class: "form-control text-center" %>
           </div>
           <div class="col-md-1 col-xs-4">
@@ -23,35 +23,39 @@
         </div>
         <% end %>
       </form>
+
       <ul class="nav navbar-nav navbar-right">
         <li id="items"><%= link_to "Items", items_path %></li>
         <li><%= link_to "Sellers", sellers_path %></li>
-
         <% if current_user %>
-        <span class="navbar-text", id= "welcome">Hello <%= link_to current_user.username.upcase, user_path(current_user) %> </span>
-        <% if current_user.platform_admin? %>
-        <li><%= link_to "Admin Dashboard", admin_platform_admin_index_path  %></li>
-        <% end %>
-        <li><%= link_to "Logout", logout_path, method: :delete %></li>
-        <% else %>
-        <li><%= link_to "Login", login_path %></li>
-        <li><%= link_to "Sign Up", new_user_path %></li>
-        <% end %>
-        <li><a href="/cart">Cart</a></li>
-      </ul>
-
-      <div class="pull-right">
-      <ul>
         <span class="dropdown">
-          <a href="/categories" class="dropdown-toggle navbar-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+          <a href="/categories" class="dropdown-toggle navbar-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id= "welcome">Hello <%= current_user.username.upcase %> </span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <% Category.all.each do |category| %>
-            <li><%= link_to category.title, category_path(category.title) %></li>
+
+            <% if current_user.platform_admin? %>
+            <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "Admin Dashboard", admin_platform_admin_index_path  %></li>
             <% end %>
+            <li><%= link_to "Logout", logout_path, method: :delete %></li>
           </ul>
-        </li>
-      </ul>
-    </div>
-    </div>
-  </div>
-</nav>
+          <% else %>
+          <li><%= link_to "Login", login_path %></li>
+          <li><%= link_to "Sign Up", new_user_path %></li>
+          <% end %>
+          <li class="pull-right"><%= link_to "Cart", cart_path, class: "navbar-text" %></li>
+        </ul>
+
+        <div class="pull-right">
+          <ul>
+            <span class="dropdown">
+              <a href="/categories" class="dropdown-toggle navbar-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <% Category.all.each do |category| %>
+                <li><%= link_to category.title, category_path(category.title) %></li>
+                <% end %>
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>

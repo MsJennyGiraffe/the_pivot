@@ -62,3 +62,8 @@ body {
   background-size: cover;
   /*background-image: url("http://farm6.static.flickr.com/5054/5390487476_b4aa9092c5.jpg");*/
 }
+
+.border-image {
+  border: 2px solid black;
+  border-radius: 5px;
+}
