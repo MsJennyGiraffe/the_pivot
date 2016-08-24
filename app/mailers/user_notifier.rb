@@ -1,5 +1,5 @@
 class UserNotifier < ActionMailer::Base
-  default from: 'do-not-reply@nerdsnap.herokuapp.com'
+  default from: 'nerdsnap@gmail.com'
 
   def confirmation(user, order)
     @user = user
@@ -8,6 +8,12 @@ class UserNotifier < ActionMailer::Base
   end
 
   def send_signup_email(user)
+    @user = user
+    @url  = "http://nerdsnap.herokuapp.com/login"
+    mail(to: @user.email, subject: "Welcome to nerdSnap!")
+  end
+
+  def approved_seller(user)
     @user = user
     @url  = "http://nerdsnap.herokuapp.com/login"
     mail(to: @user.email, subject: "Welcome to nerdSnap!")
