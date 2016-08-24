@@ -1,5 +1,7 @@
 <div class="col-md-8">
-  <div class="well text-center"><h1>Geek AF -- Hot Items</h1></div>
+  <div class="well text-center"><h1>Geek AF -- Hot Items</h1>
+  <%= link_to "Chat About It!", chat_rooms_path, class: "btn btn-primary" %>
+  </div>
 
 <div class="well">
   <div class="row">
@@ -25,7 +27,7 @@
     <h1 class="text-center"> Become a Seller! </h1>
     <p class="text-center"><%= Faker::Hipster.paragraph %></p>
     <% if current_user && current_user.role == "default" %>
-    <div class="text-center"> <%= link_to "Apply Now", request_path, method: :put, class: "btn btn-primary" %></div>
+    <div class="text-center"> <%= link_to "Apply Now", request_path(current_user), method: :put, class: "btn btn-primary" %></div>
     <% elsif current_user && current_user.role != "default" %>
     <div class="text-center"><%= link_to "Apply Now", root_path, class: "btn btn-primary" %></div>
     <% else %>
