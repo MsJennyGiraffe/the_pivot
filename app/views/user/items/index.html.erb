@@ -4,8 +4,8 @@
   <li><%= link_to item.title, user_item_path(user_slug: item.user.slug, id: item) %> </li>
   <li><%= item.description %></li>
   <li><%= item.starting_bid %></li>
-  <li><%= item.expiration_time %></li>
+  <li><%= item.expiration_time.to_formatted_s(:long) %></li>
   <% end %>
-  
+
 </div>
 <% end %>
