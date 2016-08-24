@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(username: params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
-      session[:user_id] = @user.id
+      cookies.signed[:user_id] = @user.id
       if @cart.contents.empty?
         redirect_to user_path(@user)
       else
@@ -18,7 +18,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.clear
+    ActionCable.server.disconnect(current_user: @current_user)
+    @current_user = nil
+    cookies.delete(:user_id)
     redirect_to login_path
   end
 end
