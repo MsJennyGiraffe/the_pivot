@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :items
   has_many :bids
+
   has_many :chat_rooms, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   validates :username, presence: true
   validates :password_digest, presence: true
@@ -26,6 +28,10 @@ class User < ActiveRecord::Base
     else
       self.update_attributes(approved: true, role: 1, requested: false)
     end
+  end
+
+  def name
+    email.split('@')[0]
   end
 
 

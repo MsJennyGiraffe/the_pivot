@@ -46,3 +46,11 @@ img.table-resize{
   min-height: 100%;
   width: auto;
 }
+
+#messages {
+  max-height: 450px;
+  overflow-y: auto;
+  .avatar {
+    margin: 0.5rem;
+  }
+}
