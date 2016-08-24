@@ -1,7 +1,8 @@
 <div class="row">
   <div class="container col-md-8 col-md-offset-2">
-
     <% items.each do |item| %>
+    <% item.check_bid_status %>
+    <% if item.bid_status == "Open" %>
     <div class="well well-sm">
     <div class="media">
       <div class="media-left .pull-left">
@@ -26,6 +27,7 @@
         </div>
       </div>
     </div>
+    <% end %>
     <% end %>
   </div>
 </div>
