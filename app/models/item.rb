@@ -28,8 +28,12 @@ class Item < ActiveRecord::Base
   end
 
   def check_bid_status
-    self.bid_status = 1 if self.expiration_time < Time.now
-  end
+     if self.expiration_time < Time.now
+       self.update_attributes(bid_status: "Closed") if self.bid_status == "Open"
+       order = Order.create(user: self.bids.last.user, item: self) if self.bids != []
+       UserNotifier.confirmation(self.bids.last.user, @order).deliver_now if self.bids != []
+     end
+   end
 
   def active?
     active
