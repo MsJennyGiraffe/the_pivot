@@ -7,15 +7,14 @@ Rails.application.routes.draw do
   resources :requests, only: [:update]
   resources :items, only: [:index, :show, :update]
   resources :users, only: [:new, :create, :edit, :show, :update]
-  resources :categories, only: [:index, :show], param: :name
+  resources :categories, only: [:show], param: :name
   resources :sellers, only: [:index]
   resources :orders, only: [:index, :show, :create]
 
   namespace :admin do
     get '/dashboard', to: 'orders#index'
-    resources :orders, only: [:index, :show, :update]
-    resources :items, only: [:new, :create]
     resources :platform_admin, only: [:index, :update]
+    resources :orders, only: [:index, :show, :update]
   end
 
   get '/login', to: 'sessions#new'

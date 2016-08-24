@@ -13,6 +13,5 @@ RSpec.feature "a user can view order history" do
 
     visit orders_path
     expect(page).to have_content("Order Number 1")
-
   end
 end
