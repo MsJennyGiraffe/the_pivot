@@ -34,16 +34,17 @@
           <ul class="dropdown-menu">
 
             <% if current_user.platform_admin? %>
-            <li><%= link_to "Profile", user_path(current_user) %></li>
             <li><%= link_to "Admin Dashboard", admin_platform_admin_index_path  %></li>
             <% end %>
+            <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "Chat with Sellers", chat_rooms_path %>
             <li><%= link_to "Logout", logout_path, method: :delete %></li>
           </ul>
           <% else %>
           <li><%= link_to "Login", login_path %></li>
           <li><%= link_to "Sign Up", new_user_path %></li>
           <% end %>
-          <li class="pull-right"><%= link_to "Cart", cart_path, class: "navbar-text" %></li>
+          <li class="pull-left"><%= link_to "Cart", cart_path, class: "navbar-text" %></li>
         </ul>
 
         <div class="pull-right">
