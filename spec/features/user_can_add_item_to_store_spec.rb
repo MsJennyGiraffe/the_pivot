@@ -22,12 +22,24 @@ RSpec.feature "a user can add items to their store" do
     fill_in "Expiration Time", with: "24 hours"
     click_on "Create Item"
 
-
     expect(current_path).to eq(user_item_path(user_slug: user_1.slug, id: user_1.items.last))
 
     expect(page).to have_content("Item Successfully Added To Your Store")
     expect(page).to have_content("Pogs")
     expect(page).to have_content("Flip them over and win them!")
     expect(page).to have_content("0.99")
+  end
+
+  scenario "an item is not created if not fields are filled in that are required" do
+    user = create(:user, role: 1)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit new_user_item_path(user.slug)
+
+    fill_in "Title", with: "Stuff"
+    click_on "Create Item"
+
+    expect(page).to have_content("Please fill in all fields")
   end
 end
