@@ -37,7 +37,7 @@ RSpec.feature "Platform admin can do business admin" do
   end
 
   scenario "add an item" do
-    user = create(:user)
+    user = create(:user, role: 1, approved: true)
     admin = create(:user, role: 2)
     item = create(:item, user_id: user.id)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
