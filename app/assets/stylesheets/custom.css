@@ -46,3 +46,11 @@ img.table-resize{
   min-height: 100%;
   width: auto;
 }
+
+body {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-image: url("http://farm6.static.flickr.com/5054/5390487476_b4aa9092c5.jpg")
+}
