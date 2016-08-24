@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :requests, only: [:update]
     resources :items, only: [:index, :show, :update]
     resources :users, only: [:new, :create, :edit, :show, :update]
-    resources :categories, only: [:index, :show], param: :name
+    resources :categories, only: [:show], param: :name
     resources :sellers, only: [:index]
     resources :orders, only: [:index, :show, :create]
     resources :chat_rooms, only: [:new, :create, :show, :index]
