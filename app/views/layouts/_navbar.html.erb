@@ -15,13 +15,14 @@
       <form class="navbar-form pull-left">
         <div class="form-group">
           <%= form_tag(search_path, :method => "GET") do %>
-          <div class="col-md-3 col-xs-8">
+          <div class="col-md-6 col-xs-8">
             <%= text_field_tag :search, params[:search], placeholder: "Store Quick Search", class: "form-control text-center" %>
           </div>
-          <div class="col-md-1 col-xs-4">
+          <div class="col-md-1 col-md-offset-1 col-xs-4">
           </li><%= submit_tag "Search", class:"btn btn-default" %></li>
         </div>
         <% end %>
+      </div>
       </form>
 
       <ul class="nav navbar-nav navbar-right">
@@ -29,7 +30,7 @@
         <li><%= link_to "Sellers", sellers_path %></li>
         <% if current_user %>
         <span class="dropdown">
-          <a href="/categories" class="dropdown-toggle navbar-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id= "welcome">Hello <%= current_user.username.upcase %> </span> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle navbar-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id= "welcome">Hello <%= current_user.username.upcase %> </span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
 
             <% if current_user.platform_admin? %>
@@ -56,6 +57,6 @@
               </ul>
             </ul>
           </div>
-        </div>
+      </div>
       </div>
     </nav>
