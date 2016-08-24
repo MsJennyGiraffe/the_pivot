@@ -5,7 +5,7 @@
 
     <form>
       <div class="form-group">
-        <label for="expiration_time">Expiration Time <%= @item.expiration_time %></label>
+        <label for="expiration_time">Expiration Time <%= @item.expiration_time.to_formatted_s(:long) %></label>
       </div>
     </form>
 

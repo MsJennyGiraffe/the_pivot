@@ -47,10 +47,18 @@ img.table-resize{
   width: auto;
 }
 
+
 #messages {
   max-height: 450px;
   overflow-y: auto;
   .avatar {
     margin: 0.5rem;
   }
+}
+body {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /*background-image: url("http://farm6.static.flickr.com/5054/5390487476_b4aa9092c5.jpg");*/
 }

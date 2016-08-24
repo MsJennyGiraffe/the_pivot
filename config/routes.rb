@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
     root to: 'home#index'
     resource  :session
-
     namespace :user, path: ":user_slug", as: :user do
       resources :items
     end
@@ -13,7 +12,6 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :create]
     resources :chat_rooms, only: [:new, :create, :show, :index]
     mount ActionCable.server => '/cable'
-
 
     namespace :admin do
       get '/dashboard', to: 'orders#index'

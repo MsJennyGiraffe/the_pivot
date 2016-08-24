@@ -17,7 +17,7 @@ gem 'redis', '~> 3.2'
 gem 'turbolinks', '~> 5.0.0'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'puma', '~> 3.0'
-
+gem 'figaro'
 
 
 group :development, :test do
