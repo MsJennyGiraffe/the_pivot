@@ -1,3 +1,4 @@
+# Be sure to restart your server when you modify this file. Action Cable runs in a loop that does not support auto reloading.
 class ChatRoomsChannel < ApplicationCable::Channel
   def subscribed
     stream_from "chat_rooms_#{params['chat_room_id']}_channel"

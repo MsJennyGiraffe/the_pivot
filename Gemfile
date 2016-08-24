@@ -14,7 +14,9 @@ gem 'rails_12factor', group: :production
 gem 'jquery-ui-rails'
 gem 'simplecov'
 gem 'redis', '~> 3.2'
-gem 'turbolinks'
+gem 'turbolinks', '~> 5.0.0'
+gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'puma', '~> 3.0'
 
 
 
