@@ -6,7 +6,7 @@
     <% @items.each do |item| %>
     <div class="col-md-3">
       <h2><%= item.title %></h2>
-      <%= image_tag item.image_path, class: "img-responsive" %>
+      <%= image_tag item.image_path, class: "img-responsive border-image" %>
       <h4>Starting Bid: <%= item.starting_bid %></h4>
       <% if item.buyout_price %>
       <h4>Snap it Up: <%= item.buyout_price %></h4>
@@ -24,6 +24,12 @@
   <div class="jumbotron">
     <h1 class="text-center"> Become a Seller! </h1>
     <p class="text-center"><%= Faker::Hipster.paragraph %></p>
+    <% if current_user && current_user.role == "default" %>
+    <div class="text-center"> <%= link_to "Apply Now", request_path, method: :put, class: "btn btn-primary" %></div>
+    <% elsif current_user && current_user.role != "default" %>
+    <div class="text-center"><%= link_to "Apply Now", root_path, class: "btn btn-primary" %></div>
+    <% else %>
     <div class="text-center"> <%= link_to "Apply Now", login_path, class: "btn btn-primary" %></div>
+    <% end %>
   </div>
 </div>
