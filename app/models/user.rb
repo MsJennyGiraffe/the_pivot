@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   def update_role
     if self.role == "platform_admin"
       self.update_attributes(approved: true, requested: false)
+      UserNotifier.approved_seller(self).deliver_now
     else
       self.update_attributes(approved: true, role: 1, requested: false)
     end
