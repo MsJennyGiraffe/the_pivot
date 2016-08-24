@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '5.0'
+gem 'rails', '>= 5.0.0.rc1', '< 5.1'
 gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -13,6 +13,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
 gem 'jquery-ui-rails'
 gem 'simplecov'
+gem 'redis', '~> 3.2'
+gem 'turbolinks', '~> 5.0.0'
+gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'puma', '~> 3.0'
+
+
 
 group :development, :test do
   gem 'byebug'

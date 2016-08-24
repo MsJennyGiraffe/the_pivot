@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "UserViewsItems", type: :feature do
 
   let!(:item_instance) { create(:item) }
-  scenario "user can view all items on item page" do
+  scenario "user can view all items on item page", js:true do
 
     visit items_path
 
