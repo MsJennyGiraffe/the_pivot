@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         redirect_to cart_path
       end
     else
-      flash.now[:alert] = "Invalid. Try Again."
+      flash.now[:warning] = "Invalid. Try Again."
       render :new
     end
   end

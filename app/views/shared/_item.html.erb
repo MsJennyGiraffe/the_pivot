@@ -1,33 +1,34 @@
 <div class="row">
-  <div class="container col-md-8 col-md-offset-2">
-    <% items.each do |item| %>
+  <% items.each do |item| %>
+  <div class="container col-md-6">
     <% item.check_bid_status %>
     <% if item.bid_status == "Open" %>
-    <div class="well well-sm">
-    <div class="media">
-      <div class="media-left .pull-left">
-        <%= image_tag item.image_path, :class => "resize, border-image"%>
-      </div>
-      <div class="media-body .pull-right">
+    <div class="well">
+      <div class="media">
+        <div class="media-left .pull-left">
+          <%= image_tag item.image_path, :class => "resize, border-image"%>
+        </div>
+        <div class="media-body .pull-right">
           <h3 id="title" class="media-heading text-center"><%=link_to item.title, item_path(item.id) %></h3>
 
-          <div class="col-md-3">
-          <h4 class="text-center">Current Bid:</h4>
-          <h4 class="text-center"> <%= item.starting_bid %></h4>
-          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <h4 class="text-center">Current Bid:</h4>
+              <h4 class="text-center"> <%= item.starting_bid %></h4>
+            </div>
 
-          <div class="col-md-3">
-          <h4 class="text-center">Snap it Up: </h4>
-          <h4 class="text-center"><%= item.buyout_price if item.buyout_price %></h4>
+            <div class="col-md-5">
+              <h4 class="text-center">Snap it Up: </h4>
+              <h4 class="text-center"><%= item.buyout_price if item.buyout_price %></h4>
+            </div>
           </div>
-
-          <div class="col-md-5">
-          <%=h truncate(item.description, :length => 125) %>
-        </div>
+          <div class="col-md-12">
+            <%=h truncate(item.description, :length => 125) %>
+          </div>
         </div>
       </div>
     </div>
     <% end %>
-    <% end %>
   </div>
+  <% end %>
 </div>

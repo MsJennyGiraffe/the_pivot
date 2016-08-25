@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       cookies.signed[:user_id] = @user.id
       UserNotifier.send_signup_email(@user).deliver_now
 
-      flash[:notice] = "Logged in as #{@user.username}"
+      flash[:success] = "Logged in as #{@user.username}"
       if @cart.contents.empty?
         redirect_to user_path(@user)
       else

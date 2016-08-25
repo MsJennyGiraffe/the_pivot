@@ -1,24 +1,34 @@
+<div class="col-md-8 col-md-offset-2">
 <div class="well">
 <div class="row">
-  <div class="container col-md-8 col-md-offset-2">
+  <div class="container col-md-10 col-md-offset-1">
+
+    <div class="pull-left">
+      <%= image_tag @item.image_path, :class => "resize, border-image"%>
+    </div>
     <h3 class="text-center"> <%=link_to @item.title, item_path(@item) %></h3>
-    <div class="text-center"><%= @item.description %></div>
+
+    <div class="col-md-7 col-md-offset-1 text-center"><%= @item.description %>
 
     <form>
-      <div class="form-group">
+      <div class="form-group text-center">
         <h4><label for="expiration_time">Expiration Date <%= @item.expiration_time.strftime("%m-%d-%Y") %></label></h4>
         <h4>Countdown Till Bidding Ends <div data-countdown= <%= @item.expiration_time %> ></div></h4>
         <br />
     </form>
+    </div>
 
-    <label for="bid">Current Bid: <%= @item.starting_bid %></label>
+    <h3 class="col-md-12 text-center"><label for="bid">Current Bid: <%= @item.starting_bid %></label></h3>
+<div class="col-md-6">
     <%= form_tag("/items/#{@item.id}", method: "put") do %>
       <%= label_tag :starting_bid %>
       <%= text_field_tag :starting_bid %>
       <%= submit_tag("Place Bid", class: "btn btn-primary btn-lg active") %>
       <% end %>
+    </div>
 
       <% if @item.buyout_price %>
+      <div class="col-md-6">
       <div class="text-center"> Buyout Price: <%= @item.buyout_price %> </div>
       <div class="text-center", id="buyout"><%= link_to "Snap it Up", cart_path(id: @item.id, type: "buyout"), class: "btn btn-primary btn-lg active", method: :post %></div>
       <% end %>
@@ -33,5 +43,6 @@
       });
      </script>
     </div>
+    </div>
   </div>
-  </div>
+</div>
