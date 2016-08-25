@@ -9,19 +9,11 @@ class CartController < ApplicationController
   end
 
   def show
-    if !@cart
-      flash[:no_items] = "Your cart is currently empty"
+    if @cart.contents == {}
+      flash[:warning] = "Your cart is currently empty"
     else
       @cart_items = @cart.cart_items
     end
-  end
-
-  def update
-    item_id = params[:id]
-    quantity = params[:quantity]
-    @cart.update_quantity(item_id, quantity)
-    @cart = session[:cart]
-    redirect_to '/cart'
   end
 
   def destroy
@@ -31,10 +23,6 @@ class CartController < ApplicationController
     @cart = session[:cart]
     flash[:success] = 'Successfully removed ' + item_removed_from_cart(item) + ' from your cart'
     redirect_to '/cart'
-  end
-
-  def change_quantity
-    session[:cart][item_id] = params[:id][:quantity]
   end
 
   def cart_path_filter

@@ -1,12 +1,8 @@
 class Admin::PlatformAdminController < Admin::BaseController
   def index
-    if current_user.platform_admin?
       @users = User.where(requested: true)
       @not_approved =  User.where(requested: false, role: "seller").reverse
       @approved = User.where(approved: true)
-    else
-      render file: "/errors/not_found"
-    end
   end
 
   def update

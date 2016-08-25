@@ -4,30 +4,30 @@
 
 <div class="well well-xs">
 
-<%= form_for [:admin, @item] do |f| %>
+  <%= form_for [:admin, @item] do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title, class: "form-control" %>
-<br>
+  <br>
   <%= f.label :price %>
   <%= f.text_field :price, class: "form-control" %>
-<br>
+  <br>
   <%= f.label :description %>
   <%= f.text_field :description, class: "form-control" %>
-<br>
+  <br>
   <%= f.label :image_path %>
   <%= f.text_field :image_path, class: "form-control" %>
-<br>
+  <br>
 
   <%= f.select(:category_id) do %>
 
   <%= options_for_select(@categories) %>
 
   <% end %>
-<br>
+  <br>
   <%= f.label :stock %>
   <%= f.text_field :stock, class: "form-control" %>
-<br>
+  <br>
   <%= f.submit %>
-<% end %>
+  <% end %>
 
 </div>

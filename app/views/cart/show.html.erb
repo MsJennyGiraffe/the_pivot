@@ -40,21 +40,20 @@ No current items
             Total
             <% total = 0 %>
             <% @cart_items.each { |item| total += item.subtotal } %>
-              <%= total %>
+            <%= total %>
           </td>
         </td>
       </div>
-        </td>
-        </tr>
-        <% end %>
-    </thead>
-  </table>
+    </td>
+  </tr>
+  <% end %>
+</thead>
+</table>
 </div>
 </div>
 </div>
 
-
-<div class="col-xs-12">
+<div class="col-xs-12 col-md-8 col-md-offset-2">
   <div class="panel panel-primary">
     <br>
     <h2 class="text-center">Order Totals</h2>

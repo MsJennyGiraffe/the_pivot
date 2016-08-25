@@ -10,10 +10,9 @@ RSpec.describe Category, type: :model do
 
   describe "category should have the correct attributes" do
     it { should respond_to(:title) }
-    it { expect(category_instance.title).to match(/Category_\d/) }
   end
 
-  describe "category validates attributes" do 
+  describe "category validates attributes" do
     it { expect(category_instance).to validate_presence_of(:title) }
   end
 
