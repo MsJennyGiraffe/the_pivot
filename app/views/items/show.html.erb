@@ -21,7 +21,6 @@
     <h3 class="col-md-12 text-center"><label for="bid">Current Bid: <%= @item.starting_bid %></label></h3>
 <div class="col-md-6">
     <%= form_tag("/items/#{@item.id}", method: "put") do %>
-      <%= label_tag :starting_bid %>
       <%= text_field_tag :starting_bid %>
       <%= submit_tag("Place Bid", class: "btn btn-primary btn-lg active") %>
       <% end %>
