@@ -14,12 +14,12 @@ RSpec.feature "a user can submit a bid" do
 
       visit item_path(item)
 
-      fill_in "bid", with: "#{item.starting_bid - 1}"
+      fill_in :starting_bid, with: "#{item.starting_bid - 1}"
       click_on "Place Bid"
 
       expect(page).to have_content("Must make a bid that is higher than current bid.")
 
-      fill_in "bid", with: "#{item.starting_bid + 1}"
+      fill_in :starting_bid, with: "#{item.starting_bid + 1}"
       click_on "Place Bid"
 
       expect(current_path).to eq(item_path(item))
