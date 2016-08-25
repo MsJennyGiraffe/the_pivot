@@ -1,12 +1,12 @@
 <div class="col-md-8 col-md-offset-2">
-<div class="well">
-<%= form_for @chat_room do |f| %>
-  <div class="form-group">
-    <h3 class="text-center"><%= f.label :title %></h3>
-    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
-  </div>
+  <div class="well">
+    <%= form_for @chat_room do |f| %>
+    <div class="form-group">
+      <h3 class="text-center"><%= f.label :title %></h3>
+      <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+    </div>
 
-  <%= f.submit "Add!", class: 'btn btn-primary btn-block' %>
-<% end %>
-</div>
+    <%= f.submit "Add!", class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
 </div>

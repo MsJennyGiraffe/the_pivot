@@ -3,21 +3,21 @@
     <h1 class="text-center">Order Number <%= @order.id %></h1>
     <div>
       <div class=" table-responsive col-md-11">
-      <table class="table table-bordered table-striped">
-        <thead>
-          <th>Item</th>
-          <th>Quantity</th>
-          <th>Price</th>
-          <% @order.order_items.each do |order_item| %>
-          <tr>
-            <td> <%= order_item.item.title %> </td>
-            <td> <%= order_item.quantity %> </td>
-            <td> <%= order_item.item.buyout_price %> </td>
-          </tr>
-          <% end %>
-        </thead>
-      </table>
+        <table class="table table-bordered table-striped">
+          <thead>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <% @order.order_items.each do |order_item| %>
+            <tr>
+              <td> <%= order_item.item.title %> </td>
+              <td> <%= order_item.quantity %> </td>
+              <td> <%= order_item.item.buyout_price %> </td>
+            </tr>
+            <% end %>
+          </thead>
+        </table>
+      </div>
     </div>
   </div>
-</div>
 </div>

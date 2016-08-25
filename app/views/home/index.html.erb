@@ -1,26 +1,25 @@
 <div class="col-md-8">
   <div class="well text-center"><h1>Geek AF -- Hot Items</h1>
-  <%= link_to "Chat About It!", chat_rooms_path, class: "btn btn-primary" %>
+    <%= link_to "Chat About It!", chat_rooms_path, class: "btn btn-primary" %>
   </div>
 
-<div class="well">
-  <div class="row">
-    <% @items.each do |item| %>
-    <div class="col-md-3">
-      <h2><%= item.title %></h2>
-      <%= image_tag item.image_path, class: "img-responsive border-image" %>
-      <h4>Starting Bid: <%= item.starting_bid %></h4>
-      <% if item.buyout_price %>
-      <h4>Snap it Up: <%= item.buyout_price %></h4>
+  <div class="well">
+    <div class="row">
+      <% @items.each do |item| %>
+      <div class="col-md-3">
+        <h2><%= item.title %></h2>
+        <%= image_tag item.image_path, class: "img-responsive border-image" %>
+        <h4>Starting Bid: <%= item.starting_bid %></h4>
+        <% if item.buyout_price %>
+        <h4>Snap it Up: <%= item.buyout_price %></h4>
+        <% end %>
+        <h4><%=h truncate(item.description, :length => 70) %></h4>
+        <div class="text-center"><%= link_to "View Item", item_path(item), class: "btn btn-primary" %></div>
+      </div>
       <% end %>
-      <h4><%=h truncate(item.description, :length => 70) %></h4>
-      <div class="text-center"><%= link_to "View Item", item_path(item), class: "btn btn-primary" %></div>
     </div>
-    <% end %>
   </div>
 </div>
-</div>
-
 
 <div class="col-md-4">
   <div class="jumbotron">
