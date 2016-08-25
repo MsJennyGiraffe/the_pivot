@@ -19,6 +19,7 @@ class ChatRoomsController < ApplicationController
         flash[:success] = 'Chat Room Added!'
         redirect_to chat_rooms_path
       else
+        flash[:warning] = "Chat Room must have unique title."
         render 'new'
       end
     else

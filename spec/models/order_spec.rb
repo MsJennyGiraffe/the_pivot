@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
-  let(:order_instance) { build(:order_with_items) }
+  let(:order_instance) { build(:order) }
 
   it "has a valid factory" do
     expect(order_instance).to be_valid

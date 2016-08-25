@@ -12,12 +12,12 @@ RSpec.describe OrderItem, type: :model do
     it { expect(order_item_instance).to respond_to(:item) }
   end
 
-  describe "category validates associations" do
+  describe "order item validates associations" do
     it { expect(order_item_instance).to belong_to(:order) }
     it { expect(order_item_instance).to belong_to(:item) }
   end
 
-  describe "item validates attributes" do
+  describe "order item validates attributes" do
     it { expect(order_item_instance).to validate_presence_of(:order) }
     it { expect(order_item_instance).to validate_presence_of(:item) }
   end
