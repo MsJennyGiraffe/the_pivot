@@ -91,7 +91,7 @@ class Seed
 
     89.times do
       user = User.create!({
-        username:    Faker::Internet.user_name,
+        username:    Faker::Internet.user_name + Faker::Internet.username,
         password:    "password",
         email:       Faker::Internet.email,
         first_name:  Faker::Name.first_name,
