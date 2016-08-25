@@ -22,7 +22,7 @@ RSpec.feature "Admin can take a business offline" do
 
     expect(page).to have_content("#{user.username} Take Offline")
     admin.update_role
-    expect(admin.name).to eq("example4")
+    expect(page).to have_content(admin.username.upcase)
   end
 
   scenario "a guest user cannot access platform admin dashboard" do

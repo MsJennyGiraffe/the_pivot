@@ -12,10 +12,4 @@ class SellersController < ApplicationController
       render file: "/errors/not_found" unless current_admin?
     end
   end
-
-  private
-    def user_params
-      params.require(:user).permit(:username, :password, :email)
-    end
-
 end

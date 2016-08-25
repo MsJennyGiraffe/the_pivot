@@ -35,5 +35,4 @@ class Order < ActiveRecord::Base
       item.save
     end
   end
-
 end

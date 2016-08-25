@@ -42,4 +42,20 @@ FactoryGirl.define do
     image_path "https://image.freepik.com/free-icon/wagon_318-116334.png"
     bid_status { 0 }
   end
+
+  factory :order_item do |n|
+    order
+    item
+  end
+
+  factory :order do |n|
+    user
+    status "completed"
+  end
+
+  factory :bid do |n|
+    price { rand(1..10000) }
+    user
+    item
+  end
 end
