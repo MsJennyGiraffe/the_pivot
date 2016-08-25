@@ -6,7 +6,7 @@ RSpec.feature "Checkout" do
 
     visit "/items"
     click_link "#{item.title}"
-    fill_in :bid, with: ( item.starting_bid + 1 )
+    fill_in :starting_bid, with: ( item.starting_bid + 1 )
     click_button "Bid"
 
     expect(current_path).to eq("/items/#{item.id}")
