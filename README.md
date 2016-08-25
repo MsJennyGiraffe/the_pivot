@@ -4,7 +4,7 @@
 ## Built with Ruby on Rails
 
 ### Authors
-[Trent Whitinger](https://github.com/twhitinger), [Jenny Soden](https://github.com/MsJennyGiraffe), [Charles Kaminer](https://github.com/ckaminer),
+[Trent Whitinger](https://github.com/twhitinger), [Jenny Soden](https://github.com/MsJennyGiraffe),
 [Matthew Campbell](https://github.com/matthewecampbell)
 
 This project was created as a part of the curriculum for the [Turing School of Software & Design](http://turing.io).
