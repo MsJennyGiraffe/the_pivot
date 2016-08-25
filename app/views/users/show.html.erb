@@ -26,8 +26,8 @@
     <%= button_to "Add Item", new_user_item_path(@user.slug),  method: :get, class: "btn btn-primary" %>
     <% end %>
   </div>
-
   </div>
+
   <div id="tabs-2">
     <h3 class="text-center"><%= @user.username %>'s items for sale: </h3>
     <% @user.items.each do |item| %>
@@ -45,6 +45,7 @@
     <% end %>
     <% end %>
   </div>
+
   <div id="tabs-3">
     Previous Orders:
     <% @user.orders.each do |order| %>
