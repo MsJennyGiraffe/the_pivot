@@ -38,6 +38,7 @@ RSpec.describe Order, type: :model do
 
     order = Order.from_cart(cart, user: user)
     order.update_attribute(:status, "completed")
+    expect(order.completed?).to eq(true)
     order.save
     expect(order.user).to eq(user)
     expect(order.order_items.length).to eq(1)
