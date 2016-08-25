@@ -12,10 +12,10 @@
 
     <form>
       <div class="form-group text-center">
-        <label for="expiration_time">Expiration Time <%= @item.expiration_time.to_formatted_s(:long) %></label>
-      </div>
+        <h4><label for="expiration_time">Expiration Date <%= @item.expiration_time.strftime("%m-%d-%Y") %></label></h4>
+        <h4>Countdown Till Bidding Ends <div data-countdown= <%= @item.expiration_time %> ></div></h4>
+        <br />
     </form>
-
     </div>
 
     <h3 class="col-md-12 text-center"><label for="bid">Current Bid: <%= @item.starting_bid %></label></h3>
@@ -32,6 +32,16 @@
       <div class="text-center"> Buyout Price: <%= @item.buyout_price %> </div>
       <div class="text-center", id="buyout"><%= link_to "Snap it Up", cart_path(id: @item.id, type: "buyout"), class: "btn btn-primary btn-lg active", method: :post %></div>
       <% end %>
+      <%= javascript_include_tag "jquery-2.1.1.min" %>
+     <%= javascript_include_tag "jquery.countdown.min" %>
+     <script type="text/javascript">
+       $('[data-countdown]').each(function() {
+        var $this = $(this), finalDate = $(this).data('countdown');
+        $this.countdown(finalDate, function(event) {
+          $this.html(event.strftime('%D days %H hours %M:%S'));
+        });
+      });
+     </script>
     </div>
     </div>
   </div>
