@@ -1,7 +1,7 @@
 == README
 
 # nerdSnap
-## Built with Ruby on Rails
+## Built with Ruby on Rails 5.0.0
 
 ### Authors
 [Trent Whitinger](https://github.com/twhitinger), [Jenny Soden](https://github.com/MsJennyGiraffe),
