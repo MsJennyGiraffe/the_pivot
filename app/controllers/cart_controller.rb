@@ -10,7 +10,7 @@ class CartController < ApplicationController
 
   def show
     if @cart.contents == {}
-      flash[:no_items] = "Your cart is currently empty"
+      flash[:warning] = "Your cart is currently empty"
     else
       @cart_items = @cart.cart_items
     end
