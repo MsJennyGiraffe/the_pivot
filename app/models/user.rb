@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
   has_many :chat_rooms, dependent: :destroy
   has_many :messages, dependent: :destroy
 
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true
   validates :password_digest, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
 
   enum role: [:default, :seller, :platform_admin]
 
@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
       UserNotifier.approved_seller(self).deliver_now
     else
       self.update_attributes(approved: true, role: 1, requested: false)
+      UserNotifier.approved_seller(self).deliver_now
     end
   end
 

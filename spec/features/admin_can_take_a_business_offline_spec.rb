@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Admin can take a business offline" do
   scenario "take a business offline" do
     user = create(:user, approved: true, role: 1)
-    admin = create(:user, role: 2)  
+    admin = create(:user, role: 2)
 
     visit login_path
     fill_in "Username", with: admin.username
@@ -21,6 +21,8 @@ RSpec.feature "Admin can take a business offline" do
     first(:link, "Take Online").click
 
     expect(page).to have_content("#{user.username} Take Offline")
+    admin.update_role
+    expect(admin.name).to eq("example4")
   end
 
   scenario "a guest user cannot access platform admin dashboard" do
