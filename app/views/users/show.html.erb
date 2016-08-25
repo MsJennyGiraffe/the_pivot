@@ -71,4 +71,6 @@
     <% end %>
   </div>
 </div>
+<% if current_user.role == "seller" || current_user.role == "platform_admin" %>
 <%= button_to "Add Item", new_user_item_path(@user.slug),  method: :get %>
+<% end %>

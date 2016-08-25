@@ -1,26 +1,36 @@
-  <h1>Requested Businesses</h1>
+<div class="col-md-6 col-md-offset-3">
+<div class="well">
+
+  <h1 class="text-center">Requested Businesses</h1>
 <% @users.each do |user| %>
-<div>
+<div class="row">
+  <div class="col-md-3">
   <%= link_to user.username, user_path(user) %>
-  <%= link_to "Approve", admin_platform_admin_path(id: user, approved: "true"), method: :put %>
-  <%= link_to "Deny", admin_platform_admin_path(id: user), method: :put %>
+</div>
+    <div class="col-md-5 col-md-offset-4">
+  <%= link_to "Deny", admin_platform_admin_path(id: user), method: :put, class: "btn btn-default pull-right" %>
+  <%= link_to "Approve", admin_platform_admin_path(id: user, approved: "true"), method: :put, class: "btn btn-default pull-right" %>
+  </div>
 </div>
   <% end %>
 
-  <h1>Active Businesses</h1>
+  <h1 class="text-center">Active Businesses</h1>
   <% @approved.each do |user| %>
-  <div>
+  <div class="row">
     <%= link_to user.username, user_path(user) %>
-    <%= link_to "Take Offline", admin_platform_admin_path(id: user), method: :put %>
+    <%= link_to "Take Offline", admin_platform_admin_path(id: user), method: :put, class: "btn btn-default pull-right" %>
   </div>
   <% end %>
 
-  <h1>Inactive Businesses</h1>
+  <h1 class="text-center">Inactive Businesses</h1>
 <% @not_approved.each do |user| %>
-<div>
+<div class="row">
   <% if !user.requested && !user.approved %>
   <%= link_to user.username, user_path(user) %>
-  <%= link_to "Take Online", admin_platform_admin_path(id: user, approved: "true"), method: :put %>
+  <%= link_to "Take Online", admin_platform_admin_path(id: user, approved: "true"), method: :put, class: "btn btn-default pull-right" %>
   <% end %>
 </div>
   <% end %>
+
+</div>
+</div>
