@@ -1,8 +1,8 @@
-  <div class="panel pane-body">
-    <h1 class="text-center"><%= @category.title.capitalize %></h1><br>
-  </div>
+<div class="panel pane-body">
+  <h1 class="text-center"><%= @category.title.capitalize %></h1><br>
+</div>
 </div>
 
 <div class="container">
-<%= render partial: "shared/item", locals: {items: @category.items} %>
+  <%= render partial: "shared/item", locals: {items: @category.items} %>
 </div>

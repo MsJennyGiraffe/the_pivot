@@ -49,7 +49,7 @@ RSpec.feature "User can see their order" do
 
     click_on "Checkout"
 
-    expect(page).to have_content("Cart Empty")
+    expect(page).to have_content("Your cart is currently empty")
     expect(current_path).to eq(cart_path)
   end
 end
