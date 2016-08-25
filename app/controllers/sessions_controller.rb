@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       cookies.signed[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      flash.now[:alert] = "Invalid. Try Again."
+      flash.now[:warning] = "Invalid. Try Again."
       render :new
     end
   end

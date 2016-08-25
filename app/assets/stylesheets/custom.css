@@ -67,3 +67,8 @@ body {
   border: 2px solid black;
   border-radius: 5px;
 }
+
+.logo {
+  width: 75px;
+  margin: 0 auto;
+}

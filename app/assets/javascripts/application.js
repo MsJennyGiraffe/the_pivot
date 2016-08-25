@@ -16,4 +16,5 @@
 //= require jquery-ui
 //= require cable
 //= require turbolinks
+//= require jquery.countdown.min
 //= require_tree .
