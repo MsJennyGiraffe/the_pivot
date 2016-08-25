@@ -13,10 +13,6 @@ class Cart
     contents.values.sum
   end
 
-  def update_quantity(item_id, quantity)
-    contents[item_id.to_s] = quantity
-  end
-
   def cart_items
     contents.map do |item_id, quantity|
       item = Item.find(item_id)

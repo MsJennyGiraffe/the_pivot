@@ -24,30 +24,20 @@ RSpec.describe Cart, type: :model do
   end
 
   it ".total_price returns the total value of a cart" do
-    item1 = FactoryGirl.create(:item)
-    item2 = FactoryGirl.create(:item)
+    item1 = create(:item)
+    item2 = create(:item)
+    item3 = create(:item)
     item1_id = item1.id
     item2_id = item2.id
     quantity1 = 2
     quantity2 = 3
-    initial_contents = { item1_id => quantity1, item2_id => quantity2}
+    initial_contents = { item1 => quantity1 * item1.buyout_price, item2 => quantity2 * item2.buyout_price, item3 => item3.buyout_price}
     cart = Cart.new(initial_contents)
-    total = (item1.price * quantity1) + (item2.price * quantity2)
+    cart.delete(item3)
+    total = (item1.buyout_price * quantity1) + (item2.buyout_price * quantity2)
 
-    expect(cart.total_price).to eq(total)
+    expect(cart.total).to eq(total)
   end
 
-  it ".total_price returns the total weight of a cart" do
-    item1 = FactoryGirl.create(:item)
-    item2 = FactoryGirl.create(:item)
-    item1_id = item1.id
-    item2_id = item2.id
-    quantity1 = 2
-    quantity2 = 3
-    initial_contents = { item1_id => quantity1, item2_id => quantity2}
-    cart = Cart.new(initial_contents)
-    total = (item1.weight * quantity1) + (item2.weight * quantity2)
 
-    expect(cart.total_weight).to eq(total)
-  end
 end

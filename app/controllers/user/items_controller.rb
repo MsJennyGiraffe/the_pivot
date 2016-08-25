@@ -24,20 +24,11 @@ class User::ItemsController < User::BaseController
     end
   end
 
-  def index
-    @items = current_user.items
-  end
-
   def update
     @item = Item.find(params[:id])
     @item.update_attributes(user_item_params)
-    if @item.save
-      flash[:success] = "Item Updated!"
-      redirect_to user_item_path(user_slug: @item.user.slug, id: @item.id)
-    else
-      flash[:warning] = "Error. Try Again."
-      render :edit
-    end
+    flash[:success] = "Item Updated!"
+    redirect_to user_item_path(user_slug: @item.user.slug, id: @item.id)
   end
 
   def destroy

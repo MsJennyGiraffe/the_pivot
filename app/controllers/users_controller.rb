@@ -32,15 +32,10 @@ class UsersController < ApplicationController
     if @user.save
       cookies.signed[:user_id] = @user.id
       UserNotifier.send_signup_email(@user).deliver_now
-
-      flash[:success] = "Logged in as #{@user.username}"
-      if @cart.contents.empty?
-        redirect_to user_path(@user)
-      else
-        redirect_to cart_path
-      end
+      flash[:notice] = "Logged in as #{@user.username}"
+      redirect_to user_path(@user)
     else
-      flash.now[:error] = @user.errors.full_messages.join(", ")
+      flash.now[:warning] = @user.errors.full_messages.join(", ")
       render :new
     end
   end

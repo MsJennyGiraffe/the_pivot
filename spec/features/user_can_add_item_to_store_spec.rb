@@ -9,6 +9,7 @@ RSpec.feature "a user can add items to their store" do
     fill_in "Password", with: "password"
     click_button "Login"
 
+
     expect(current_path).to eq(user_path(user_1))
 
     click_on "Add Item"

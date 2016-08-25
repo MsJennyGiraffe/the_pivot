@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Platform admin can do business admin" do
   scenario "delete an item" do
-    user = create(:user)
+    user = create(:user, role: 1)
     admin = create(:user, role: 2)
     item = create(:item, user_id: user.id)
 
